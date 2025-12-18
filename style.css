@@ -1,0 +1,2132 @@
+/* <===================TYPOGRAPHY & FONTS===================> */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+/* <===================CSS VARIABLES===================> */
+:root {
+  --h1-size: 7rem;
+  --h2-size: 2.1rem;
+  --h3-size: 1.7rem;
+  --text-size: 1.3rem;
+  --horizontal-margin-spacing: 4rem;
+  --grey-color-light: rgba(232, 230, 230, .6);
+  --grey-color: rgba(232, 230, 230, 1);
+}
+
+/* <===================UNIVERSAL CSS===================> */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: 'Cinzel', serif;
+  color: #212121;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.hz-margin {
+  padding: 0 var(--horizontal-margin-spacing);
+}
+
+h1 {
+  font-size: var(--h1-size);
+  font-weight: 500;
+  line-height: var(--h1-size);
+}
+
+h2 {
+  font-size: var(--h2-size);
+  font-weight: bold;
+}
+
+h3 {
+  font-size: var(--h3-size);
+  font-weight: 500;
+}
+
+.reveal {
+  position: relative;
+  transform: translateY(150px);
+  opacity: 0;
+  transition: 1s all ease;
+}
+
+.reveal.active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.text {
+  font-family: 'Quicksand', sans-serif;
+  font-size: var(--text-size);
+  line-height: 1.3rem;
+}
+
+a {
+  display: flex;
+  justify-content: center;
+}
+
+.huge-btn {
+  display: inline-block;
+  font-size: clamp(1.1rem, 4vw, 1.6rem);
+  background: linear-gradient(135deg, #ff4d4d, #e63946, #c1121f); /* tonos rojizos */
+  color: white;
+  padding: 22px 55px;
+  border: none;
+  border-radius: 50px;
+
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+
+  font-weight: 600;
+  letter-spacing: 1px;
+
+  box-shadow: 0 0 38px rgba(255, 77, 77, 0.7); /* glow rojo */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  /* Latido */
+  animation: pulse 2s infinite;
+}
+
+/* Reflejo animado */
+.huge-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(120deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.6) 50%,
+      rgba(255, 255, 255, 0) 100%);
+  transform: skewX(-20deg);
+  animation: shine 3.5s ease-in-out infinite;
+}
+
+@keyframes shine {
+  0% { left: -120%; }
+  60% { left: 150%; }
+  100% { left: 150%; }
+}
+
+/* Latido */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 18px rgba(255, 77, 77, 0.7); }
+  50% { transform: scale(1.08); box-shadow: 0 0 28px rgb(255, 98, 98); }
+}
+
+.huge-btn:hover {
+  box-shadow: 0 0 35px rgba(255, 77, 77, 1.2); /* glow máximo al hover */
+}
+
+.hand-indicator {
+    display: flex;
+    justify-content: center;
+    margin-top: -15px; /* separación del botón */
+    animation: moveUpDown 1.5s ease-in-out infinite; /* movimiento vertical */
+}
+
+.hand-indicator img {
+    width: 50px; /* tamaño responsive, ajustable */
+    height: auto;
+}
+
+/* Animación de movimiento vertical */
+@keyframes moveUpDown {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); } /* sube 10px en el centro */
+}
+
+.v-reposition-container {
+  position: absolute;
+  left: 0;
+  width: 100vw;
+}
+
+.h-reposition-container {
+  width: 100vw;
+  position: relative;
+  top: 100vh;
+}
+
+/* <===================NAVBAR===================> */
+
+nav {
+  height: 3vh;
+  width: 100%;
+  margin-bottom: 15vh;
+}
+
+label.logo {
+  font-size: 35px;
+  line-height: 80px;
+  padding: 0 0 0 30px;
+  font-weight: bold;
+}
+
+nav ul {
+  float: right;
+  margin-right: 20px;
+  list-style: none;
+}
+
+nav ul li {
+  display: inline-block;
+  line-height: 80px;
+  margin: 0 5px;
+}
+
+nav ul li a {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 17px;
+  padding: 7px 13px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+a:hover {
+  color: orange;
+  transition: .5s;
+}
+
+.checkbtn {
+  font-size: 30px;
+  float: right;
+  line-height: 80px;
+  margin-right: 40px;
+  cursor: pointer;
+  display: none;
+}
+
+#check {
+  display: none;
+}
+
+@media (max-width:1000px) {
+  label.logo {
+    font-size: 20px;
+  }
+
+  nav ul li a {
+    font-size: 10px;
+  }
+
+  html {
+    font-size: 10px;
+  }
+}
+
+@media (max-width:570px) {
+  .checkbtn {
+    display: block;
+  }
+
+  ul {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    backdrop-filter: blur(5px);
+    top: 80px;
+    font-weight: bold;
+    left: -100%;
+    text-align: center;
+    transition: all .5s;
+  }
+
+  nav ul li {
+    display: block;
+    margin: 50px 0;
+    line-height: 30px;
+  }
+
+  nav li ul a {
+    font-size: 20px;
+  }
+
+  a:hover,
+  a.active {
+    background: none;
+    color: grey;
+  }
+
+  #check:checked~ul {
+    left: 0;
+  }
+}
+
+/* <===================HOME===================> */
+.container-out {
+  margin-top: 10vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.home-img {
+  background-image: url("img/width_600.jpeg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+
+  /* stronger inner shadow */
+  box-shadow: inset 0 0 70px 60px rgb(232, 230, 230, 0.8);
+
+  overflow: hidden;
+}
+
+.home-img::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: 0;
+  background: radial-gradient(circle, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0.5) 100%);
+  filter: blur(30px);
+  z-index: 1;
+}
+
+.home-img-sm {
+  display: none;
+  width: 100%;
+  margin: 20px 0 0 0;
+  height: 50vh;
+}
+
+#home-img-lg {
+  display: block;
+  height: 110vh;
+  width: 50vw;
+  background-position-x: -100px;
+}
+
+/* text styles */
+.home-text {
+  position: absolute;
+  bottom: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  z-index: 1;
+  text-align: center;
+  width: 90%;
+}
+
+.home-text h3 {
+  position: relative;
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(6rem, 12vw, 9rem);
+  color: white;
+
+  /* Elegant glow (keep your original look) */
+  text-shadow:
+    0 0 5px rgba(255, 255, 255, 0.9),
+    0 0 15px rgba(255, 200, 255, 0.8),
+    0 0 25px rgba(255, 150, 255, 0.6);
+
+  letter-spacing: 1px;
+  white-space: nowrap;
+  overflow: visible;
+}
+
+/* Sparkles floating around the text */
+.home-text h3::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -20%;
+  width: 140%;
+  height: 200%;
+  pointer-events: none;
+  overflow: hidden;
+  mix-blend-mode: screen;
+  opacity: 1;
+
+  background:
+    radial-gradient(10px 10px at 10% 20%, rgba(255, 255, 255, 1), transparent),
+    radial-gradient(8px 8px at 40% 10%, rgba(255, 200, 255, 0.95), transparent),
+    radial-gradient(12px 12px at 70% 0%, rgba(200, 255, 255, 0.95), transparent),
+    radial-gradient(9px 9px at 90% 25%, rgba(255, 240, 255, 0.9), transparent),
+    radial-gradient(7px 7px at 30% 50%, rgba(255, 255, 255, 0.9), transparent),
+    radial-gradient(8px 8px at 80% 60%, rgba(200, 255, 255, 0.9), transparent),
+    radial-gradient(9px 9px at 60% 70%, rgba(255, 180, 255, 0.9), transparent),
+    radial-gradient(10px 10px at 20% 90%, rgba(255, 255, 255, 0.85), transparent);
+
+  background-repeat: no-repeat;
+  animation: sparkle-fall 4s linear infinite;
+}
+
+.home-text h3::before {
+  content: '';
+  position: absolute;
+  top: -60%;
+  left: -25%;
+  width: 150%;
+  height: 220%;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0.7;
+
+  background:
+    radial-gradient(4px 4px at 15% 10%, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(5px 5px at 45% 0%, rgba(255, 220, 255, 0.7), transparent),
+    radial-gradient(3px 3px at 65% 5%, rgba(200, 255, 255, 0.7), transparent),
+    radial-gradient(4px 4px at 85% 15%, rgba(255, 200, 255, 0.6), transparent),
+    radial-gradient(4px 4px at 25% 35%, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(3px 3px at 75% 50%, rgba(200, 255, 255, 0.6), transparent),
+    radial-gradient(4px 4px at 55% 75%, rgba(255, 240, 255, 0.7), transparent),
+    radial-gradient(3px 3px at 35% 90%, rgba(255, 255, 255, 0.7), transparent);
+
+  background-repeat: no-repeat;
+  animation: sparkle-fall-slow 7s linear infinite 1.5s;
+}
+
+@keyframes sparkle-fall {
+  0% {
+    transform: translateY(-10%);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(80%);
+    opacity: 0;
+  }
+}
+
+/* Background layer – slower, smaller sparkles */
+@keyframes sparkle-fall-slow {
+  0% {
+    transform: translateY(-10%);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+@media (max-width:1000px) {
+  .container-out {
+    flex-direction: column;
+  }
+
+  .home-img-sm {
+    display: block;
+  }
+
+  #home-img-lg {
+    display: none;
+  }
+}
+
+/* <===================TIMELINE===================> */
+/* Itinerary Section */
+.itinerary-section {
+  text-align: center;
+  margin-top: 4rem;
+  color: #333;
+}
+
+.itinerary-title {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  top: 30px;
+  text-align: center;
+}
+
+.itinerary-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1.2rem 0;
+  gap: 1.2rem;
+}
+
+.itinerary-icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.itinerary-text {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  color: #000000;
+  gap: 1rem;
+}
+
+.itinerary-text .line {
+  flex: 0 0 40px;
+  height: 1px;
+  background-color: #000000;
+  display: inline-block;
+}
+
+.itinerary-text .time {
+  font-weight: 600;
+  color: #000000;
+}
+
+.itinerary-text .event {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: #000000;
+}
+
+
+.timeline {
+  display: block;
+  background-color: var(--grey-color-light);
+  float: left;
+  position: relative;
+  top: -30vh;
+  width: 100%;
+  backdrop-filter: blur(4px);
+  padding: 7vh var(--horizontal-margin-spacing);
+}
+
+.timeline-container {
+  display: flex;
+  flex-direction: row;
+  margin: 4vh 0;
+}
+
+.timeline-container-polaroid {
+  display: flex;
+  flex-direction: column;
+  /* stack vertically */
+  align-items: center;
+  /* center horizontally */
+  justify-content: center;
+  /* center vertically if container has height */
+  gap: 2rem;
+  /* space between items */
+  margin: 8vh 0;
+}
+
+.timeline-img {
+  position: relative;
+  width: 30vw;
+  height: 70vh;
+  background-image: url("img/width_534.jpeg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  /* rounded corners */
+  overflow: hidden;
+
+  /* stronger inner shadow */
+  box-shadow: inset 0 0 40px 30px rgb(232, 230, 230, 1);
+}
+
+.timeline-img::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  /* extend outside for blur */
+  pointer-events: none;
+  border-radius: 30px;
+  background: radial-gradient(circle, rgba(255, 200, 50, 0.0) 70%, rgba(255, 100, 200, 0.5) 100%);
+  filter: blur(30px);
+  z-index: 1;
+}
+
+.timeline-img .overlay-text {
+  position: relative;
+  /* or absolute if needed */
+  z-index: 2;
+  /* above the blur */
+  color: white;
+}
+
+/* .timings{
+    margin: 30px;
+} */
+
+.no-children-title {
+  position: relative;
+  margin: 30px;
+  padding: 20px;
+  border-radius: 15px;
+  overflow: hidden;
+  justify-content: center;
+  box-shadow: inset 0 0 70px 60px rgba(255, 170, 170, 0.8);
+}
+
+.no-children-title {
+  position: relative;
+  margin: 1vh auto;
+  /* centrado horizontal + espacio arriba/abajo */
+  padding: 3rem 2rem;
+  /* espacio interno */
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: inset 0 0 70px 60px rgba(255, 170, 170, 0.8);
+  text-align: center;
+  /* centra los textos */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* centra horizontalmente */
+  justify-content: center;
+  /* centra verticalmente */
+  width: 70%;
+  /* tamaño relativo, adaptable */
+  max-width: 800px;
+  /* límite en pantallas grandes */
+  box-sizing: border-box;
+}
+
+/* Titular principal */
+.no-children-title h2 {
+  font-size: 2.5rem;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+/* Texto secundario */
+.no-children-title h3 {
+  font-size: 1.6rem;
+  font-weight: 400;
+  font-family: 'Quicksand', sans-serif;
+  line-height: 1.6;
+}
+
+.timings {
+  position: relative;
+  margin: 30px;
+  padding: 20px;
+  border-radius: 15px;
+  overflow: hidden;
+
+  /* inner shadow */
+  box-shadow: inset 0 0 70px 60px rgba(232, 230, 230, 0.8);
+}
+
+/* Semi-transparent background image */
+.timings::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: 15px;
+  /* match container */
+  background-image: url("img/background1.webp");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.2;
+  /* only the background is transparent */
+  z-index: 0;
+}
+
+/* Optional: blurred gradient edges */
+.timings::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 15px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.5) 100%);
+  filter: blur(30px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.timeline-container .text {
+  padding: 1rem 0 1rem 4rem;
+}
+
+.timeline-container-polaroid .text {
+  padding: 1rem 0 1rem 4rem;
+}
+
+/* Container that holds the stacked photos */
+.timeline-container-polaroid.stack {
+  position: relative;
+  width: clamp(250px, 40vw, 300px);
+  /* flexible width */
+  height: clamp(350px, 50vh, 400px);
+  /* flexible height */
+  margin: 3rem auto;
+  background: radial-gradient(circle at center, #f7f7f7 0%, #dcdcdc 100%);
+  border-radius: 15px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Polaroid frame style */
+.polaroid {
+  background: white;
+  padding: 10px 10px 40px 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  position: absolute;
+  width: 80%;
+  max-width: 240px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+/* Image inside the polaroid */
+.polaroid .photo {
+  width: 100%;
+  height: 280px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 3px;
+  position: relative;
+  z-index: 1;
+  /* Changed from 999 to 1 */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Click indicator (PNG) */
+.polaroid .click-indicator {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+  animation: blink 1s infinite;
+  z-index: 2;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 10px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 15px rgba(255, 255, 255, 0.4));
+}
+
+/* Hide indicator when polaroid is active */
+.polaroid.active .click-indicator {
+  opacity: 0 !important;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* Active polaroid: center on screen */
+.polaroid.active {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.1) rotate(0deg) !important;
+  z-index: 999;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Blink animation */
+@keyframes blink {
+
+  0%,
+  50%,
+  100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+
+  25%,
+  75% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* Caption text */
+.polaroid p {
+  text-align: center;
+  margin-top: 10px;
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.3rem;
+  color: #333;
+}
+
+/* Layered positions with rotation */
+.p1 {
+  transform: rotate(-15deg) translateY(-10%);
+  /* move 20px upward */
+  z-index: 4;
+  top: -5%;
+  left: 15%;
+}
+
+.p2 {
+  transform: rotate(4deg) translateY(-5%);
+  z-index: 5;
+  top: 35%;
+  left: -30%;
+}
+
+.p3 {
+  transform: rotate(-5deg) translateY(10%);
+  z-index: 3;
+  top: 20%;
+  left: 49%;
+}
+
+.p4 {
+  transform: rotate(15deg) translateY(10%);
+  z-index: 1;
+  top: -30%;
+  left: -39%;
+}
+
+.p5 {
+  transform: rotate(-5deg) translateY(10%);
+  z-index: 2;
+  top: -35%;
+  left: 49%;
+}
+
+/* Hover: bring to front and straighten */
+.polaroid:hover {
+  transform: scale(1.05) rotate(0deg);
+  z-index: 10;
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width:1000px) {
+  .timeline {
+    background-color: var(--grey-color);
+    float: none;
+    position: relative;
+    top: 0;
+    width: 100%;
+    backdrop-filter: blur(0);
+    height: fit-content;
+  }
+
+  .timeline-container {
+    flex-direction: column;
+  }
+
+  .timeline-img {
+    height: 50vh;
+    width: 100%;
+  }
+}
+
+/* <=================gifts and color palette=====================> */
+.gift-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  color: rgb(0, 0, 0);
+  background: rgb(255, 255, 255);
+  padding: 40px;
+}
+
+.left,
+.right {
+  flex: 1;
+  min-width: 300px;
+}
+
+h3 {
+  font-family: 'Times New Roman', serif;
+  margin-bottom: 10px;
+}
+
+p {
+  font-family: 'Georgia', serif;
+  line-height: 1.5;
+}
+
+.color-palette {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.color-palette img.palette-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.savings img.hands {
+  width: 100%;
+  max-width: 250px;
+  border-radius: 20px;
+  /* similar a efecto recorte */
+  margin-bottom: 10px;
+}
+
+.savings img.qr {
+  width: 70%;
+  height: 70%;
+  margin: 10px 0;
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.icon img.icon-image {
+  max-width: 150px;
+  /* ajusta según el diseño */
+  height: auto;
+  object-fit: contain;
+}
+
+.currency {
+  color: #00a000;
+  /* verde BNB */
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .gift-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .left,
+  .right {
+    max-width: 500px;
+  }
+
+  .color-palette span {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+
+/* CONTENEDOR PRINCIPAL */
+.formal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Centra horizontalmente */
+  justify-content: center;
+  /* Centra verticalmente */
+  text-align: center;
+  gap: 1rem;
+  /* Espacio entre elementos */
+  padding: 20px;
+  max-width: 500px;
+  /* Puedes ajustar el tamaño máximo */
+  margin: auto;
+  position: relative;
+  /* Permite mover el bloque si lo deseas */
+}
+
+/* ÍCONO */
+.formal .icon-image {
+  /* max-width: 80px; */
+  height: auto;
+  object-fit: contain;
+}
+
+/* TÍTULOS Y TEXTOS */
+.formal h2 {
+  /* font-size: 1.3rem; */
+  font-weight: 700;
+}
+
+.formal h3 {
+  font-size: 1.7rem;
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+}
+
+/* IMAGEN DE PALETA */
+.formal .palette-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.photo {
+  position: relative;
+  /* Easily resize by changing these values */
+  width: 60%;
+  /* adjust this % for size */
+  aspect-ratio: 3 / 4;
+  /* keeps proportions consistent */
+
+  margin: 0 auto;
+  /* centers horizontally */
+  border-radius: 20px;
+  overflow: hidden;
+  background-image: url("img/foto-anillo-k.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* stronger inner shadow */
+  box-shadow: inset 0 0 40px 30px rgb(232, 230, 230, 1);
+}
+
+/* Degradado tipo papel envejecido */
+.photo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 1;
+  background: radial-gradient(circle,
+      rgba(255, 255, 255, 0) 50%,
+      rgba(232, 210, 170, 0.35) 80%,
+      rgba(200, 180, 130, 0.55) 100%);
+  filter: blur(2px);
+}
+
+/* Responsive: centers and scales down nicely */
+@media (max-width: 768px) {
+  .photo {
+    width: 90%;
+    border-radius: 12px;
+  }
+}
+
+/* Icono de musica flotante */
+.music-icon {
+  position: fixed;
+  top: 20px;
+  /* distancia desde la parte superior */
+  left: 80%;
+  /* mueve el icono hacia la izquierda */
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #ffb6b9, #fae3d9);
+  box-shadow: 0 0 20px rgba(255, 150, 150, 0.8);
+  cursor: pointer;
+  z-index: 9999;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  margin-top: 10px;
+  animation: float 3s ease-in-out infinite;
+  z-index: 9991;
+}
+
+/* Efecto flotante sutil */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.music-icon:hover {
+  transform: scale(1.1);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Efecto animado al reproducir */
+.music-icon.playing {
+  animation: pulse 1.6s infinite;
+  box-shadow: 0 0 25px rgba(255, 200, 200, 0.9);
+}
+
+/* Estado pausado */
+.music-icon.paused {
+  box-shadow: 0 0 10px rgba(255, 150, 150, 0.4);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Cambia el icono según el estado */
+.music-icon.playing::before {
+  content: "🎵";
+}
+
+.music-icon.paused::before {
+  content: "🔇";
+}
+
+/* Hover */
+.music-icon:hover {
+  transform: scale(1.15);
+}
+
+/* Responsive: ajusta tamaño en móviles */
+@media (max-width: 600px) {
+  .music-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 22px;
+    top: 15px;
+    right: 15px;
+  }
+}
+
+
+
+/* PANTALLA DE BIENVENIDA */
+#welcome-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #ffd6e0, #d5f0ff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+#welcome-screen button {
+  font-size: 2rem;
+  padding: 20px 40px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  background-color: #fff;
+  color: #ff6f91;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+#welcome-screen button:hover {
+  transform: scale(1.05);
+}
+
+
+/* <===================STORY===================> */
+/* Container for logo + rose */
+.story-logo-container {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Rose behind logo */
+.timeline-img-rose {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 280px;
+  height: 280px;
+  background-image: url('img/rosa.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: translate(-50%, -50%);
+  opacity: 0.8;
+  z-index: 1;
+  pointer-events: none;
+
+  /* soft edges fade */
+  -webkit-mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) 100%);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: cover;
+  mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) 100%);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: cover;
+
+  /* glow effect */
+  filter: drop-shadow(0 0 20px rgba(255, 192, 203, 0.4));
+}
+
+/* Logo circle */
+.story-logo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #3a0d0d, #000);
+  color: white;
+  font-size: 1.8rem;
+  font-weight: bold;
+  border: 2px solid #b48a2e;
+  z-index: 2;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Gold leaves */
+.story-logo::before,
+.story-logo::after {
+  content: "";
+  position: absolute;
+  width: 160px;
+  height: 120px;
+  background: url('img/floral1.png') no-repeat center;
+  background-size: contain;
+  top: -20px;
+  opacity: 0.9;
+}
+
+.story-logo::before {
+  left: -135px;
+}
+
+.story-logo::after {
+  right: -135px;
+  transform: scaleX(-1);
+}
+
+/* Text inside logo */
+.story-logo span {
+  font-size: 50px;
+  color: white;
+  text-shadow: 0 0 15px gold;
+}
+
+/*<=================Parents========================>*/
+/* Timeline content wrapper */
+.timeline-container-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 8rem;
+}
+
+/* Title */
+.title-parents {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  position: relative;
+  z-index: 3;
+  /* above rose */
+  margin-top: 2rem;
+  /* move below rose */
+}
+
+/* Parents container (side by side) */
+.parents-container {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  /* space between parents */
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Individual parents fine-tuning */
+.parents-1 {
+  transform: translateX(20px);
+}
+
+.parents-2 {
+  transform: translateX(-20px);
+}
+
+.parents-1 .text {
+  font-size: 1.8rem;
+  line-height: 1;
+  /* more space between lines */
+
+}
+
+.parents-2 .text {
+  font-size: 1.8rem;
+  line-height: 1;
+  /* more space between lines */
+}
+
+.parents {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.3;
+  text-align: center;
+}
+
+/* Floating images container */
+.floating-images {
+  position: relative;
+  width: 100%;
+  height: auto;
+  /* increase height to give space for vertical movement */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.5rem 0;
+  margin-bottom: 60px;
+  margin-top: 90px;
+}
+
+/* Heart */
+#img-heart {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background-image: url('img/heart1.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  top: 40%;
+  /* move heart slightly up */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: floatHeart 4s ease-in-out infinite alternate;
+}
+
+/* Ring */
+#img-ring {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-image: url('img/ring1.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  top: 30%;
+  /* move ring slightly down */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: floatRing 3s ease-in-out infinite alternate-reverse;
+}
+
+/* Floating animations */
+@keyframes floatHeart {
+  0% {
+    transform: translate(-50%, -60%) rotate(-5deg);
+  }
+
+  50% {
+    transform: translate(-50%, -40%) rotate(5deg);
+  }
+
+  100% {
+    transform: translate(-50%, -60%) rotate(-5deg);
+  }
+}
+
+@keyframes floatRing {
+  0% {
+    transform: translate(-50%, -40%) rotate(0deg);
+  }
+
+  50% {
+    transform: translate(-50%, -20%) rotate(15deg);
+  }
+
+  100% {
+    transform: translate(-50%, -40%) rotate(0deg);
+  }
+}
+
+.story-quote p {
+  margin: 0;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  line-height: 1.6;
+  font-size: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+
+@media (max-width:1000px) {
+  .h-reposition-container {
+    position: relative;
+    top: 0;
+  }
+
+  #story {
+    flex-direction: column;
+  }
+
+  #story h3 {
+    width: 100%;
+    margin: 5px 0;
+    font-size: var(--h3-size);
+  }
+
+  #story p {
+    width: 100%;
+    margin: 5px 0;
+    font-size: var(--text-size);
+    line-height: var(--text-size);
+  }
+}
+
+/* <===================Invitation===================> */
+.invitation-section {
+  color: #fff;
+  text-align: center;
+  padding: 1rem 1rem;
+  position: relative;
+  top: -30px;
+}
+
+.invitation-title {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.invitation-icon img {
+  width: clamp(80px, 10vw, 150px);
+  height: auto;
+  margin: 1.5rem 0;
+}
+
+.invitation-date .date-line {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 600;
+}
+
+.invitation-date .date-line span {
+  display: inline-block;
+}
+
+.invitation-countdown .countdown-numbers {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  margin: 1rem 0;
+}
+
+.invitation-countdown .countdown-labels {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: 500;
+}
+
+.invitation-date {
+  text-align: center;
+  color: white;
+  font-family: 'Cormorant Garamond', serif;
+  margin-top: 30px;
+}
+
+.invitation-date .day {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+/* Month above */
+.invitation-date .month {
+  display: block;
+  font-size: clamp(2.2rem, 3vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+/* Horizontal line + inline elements */
+.date-line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  position: relative;
+  left: -5%;
+}
+
+/* Add the dashed lines */
+.date-line::before,
+.date-line::after {
+  content: "";
+  flex: 1;
+  border-top: 1px dashed rgba(255, 255, 255, 0.6);
+  margin: 0 10px;
+}
+
+/* Text styles */
+.weekday,
+.year {
+  font-size: 1.5rem;
+  opacity: 0.9;
+}
+
+.day {
+  font-size: 3.5rem;
+  font-family: 'Great Vibes', cursive;
+  line-height: 1;
+  margin: 0 10px;
+}
+
+.invitation-countdown {
+  text-align: center;
+  color: #3b3333;
+  margin-top: 20px;
+  font-family: 'Playfair Display', serif;
+  width: 100%;
+  /* or 100% for full width */
+}
+
+.invitation-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* centra horizontalmente */
+  justify-content: center;
+  /* centra verticalmente */
+  text-align: center;
+  max-width: 900px;
+  /* ancho máximo para no estirar demasiado */
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  box-sizing: border-box;
+}
+
+.invitation-container h3.reveal {
+  font-size: clamp(2rem, 3vw, 3rem);
+  /* escala según pantalla */
+  font-weight: 700;
+  margin-bottom: 0rem;
+  font-family: 'Quicksand', sans-serif;
+  line-height: 1.4;
+}
+
+.countdown-numbers {
+  font-size: 2.5rem;
+  font-weight: bold;
+  letter-spacing: 3px;
+  color: #000000;
+}
+
+.countdown-labels {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  font-size: 2.2rem;
+  color: #cbbdbd;
+  margin-top: 6px;
+}
+
+.invitation-venue h3 {
+  font-size: clamp(1.9rem, 2.5vw, 2.5rem);
+  margin-top: 2rem;
+}
+
+.invitation-venue {
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+}
+
+.countdown-labels span {
+  font-size: 1rem;
+  letter-spacing: 1px;
+  justify-content: center;
+}
+
+.invitation-venue p {
+  font-size: clamp(1.9rem, 2vw, 1.8rem);
+  margin-bottom: 0rem;
+}
+
+/* Botón */
+.invitation-venue .huge-btn {
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  padding: 20px 40px;
+  border-radius: 50px;
+  border: 1px solid #212121;
+  background: transparent;
+  color: #7c7777;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.invitation-venue .huge-btn:hover {
+  color: grey;
+  border-color: grey;
+}
+
+.novios1 {
+  width: clamp(200px, 30vw, 400px);
+  /* tamaño responsive */
+  height: auto;
+  margin-top: 5rem;
+  /* margen base */
+  position: relative;
+  /* permite mover verticalmente sin afectar otros elementos */
+  top: -210px;
+  /* mueve la imagen 20px hacia abajo (usa negativo para subir) */
+  left: 110px;
+  opacity: 0.2;
+  /* transparencia: 1 = opaco, 0 = invisible */
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+
+/* <===================GALLERY===================> */
+.gallery {
+  display: flex;
+  padding: 20vh 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.gallery-img {
+  width: 30vw;
+  height: 30vw;
+  margin: 10px;
+  background-size: cover;
+  background-position: center;
+}
+
+.gallery-img:nth-child(1) {
+  background-image: url("img/width_450.jpeg");
+  background-position-x: right;
+  box-shadow: inset 0 0 40px 30px rgb(232, 230, 230, 1);
+  /* efecto de borde degradado */
+}
+
+.gallery-img:nth-child(3) {
+  background-image: url("img/width_450.webp");
+  box-shadow: inset 0 0 40px 30px rgb(232, 230, 230, 1);
+  /* efecto de borde degradado */
+}
+
+.gallery-img:nth-child(2) {
+  background-position-y: top;
+  background-image: url("img/width_533.jpeg");
+  box-shadow: inset 0 0 40px 30px rgb(232, 230, 230, 1);
+  /* efecto de borde degradado */
+}
+
+@media (max-width:1000px) {
+  .gallery {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .gallery-img {
+    width: 100vw;
+    height: 90vw;
+    margin: 2px 0;
+  }
+
+  .gallery-img:nth-child(2) {
+    position: relative;
+    left: -(var(--horizontal-margin-spacing));
+  }
+}
+
+/* <===================QUOTE===================> */
+.quote {
+  margin: 1vh 0;
+}
+
+.quote h1 {
+  width: 55vw;
+  font-size: 4rem;
+  text-align: center;
+  margin: auto;
+}
+
+.author {
+  text-align: center;
+  margin: 20px 0 10vh 0;
+}
+
+@media (max-width:1570px) {
+  .quote h1 {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+}
+
+/* <===================HANDS===================> */
+.hands {
+  height: 50vh;
+  width: 100%;
+  background-image: url("img/img5.jpg");
+  background-size: cover;
+  background-position-y: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  box-shadow: inset 0 0 40px 30px rgb(232, 230, 230, 1);
+  /* efecto de borde degradado */
+}
+
+/* <===================STAY===================> */
+#stay {
+  background-color: var(--grey-color);
+  padding: 10vh var(--horizontal-margin-spacing);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* centra horizontalmente */
+  justify-content: center;
+  /* centra verticalmente */
+  text-align: center;
+  /* centra todos los textos */
+  box-sizing: border-box;
+}
+
+.stay-container {
+  display: flex;
+  flex-wrap: wrap;
+  /* permite varias filas */
+  justify-content: center;
+  /* centra horizontalmente */
+  align-items: center;
+  /* centra verticalmente */
+  gap: 3rem;
+  /* espacio entre tarjetas */
+  margin: 10vh 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.stay-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* centra todo dentro */
+  justify-content: center;
+  text-align: center;
+  max-width: 380px;
+  width: 100%;
+  padding: 1rem 1rem;
+  /* 1rem arriba y abajo, 2rem a los lados */
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+
+.stay-item .text {
+  margin: 5px 0;
+  font-size: 1.8rem;
+  font-family: 'Quicksand', sans-serif;
+  text-align: center;
+  line-height: 1.6;
+  color: var(--text-color, #000);
+}
+
+.links {
+  cursor: pointer;
+  text-decoration: underline;
+  text-align: center;
+}
+
+#stay h2.reveal {
+  margin-bottom: 2rem;
+  font-size: 2.3rem;
+  text-align: center;
+  font-family: 'Quicksand', sans-serif;
+}
+
+/* Títulos internos (por ejemplo h3 dentro de .text) */
+.stay-item .text h3 {
+  margin-bottom: 0.8rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Fotos y QR */
+.stay-item .photo {
+  width: 100%;
+  /* ancho relativo al contenedor */
+  height: auto;
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px;
+  margin-top: 1rem;
+}
+
+.stay-item .qr {
+  width: 100%;
+  /* ancho relativo al contenedor */
+  height: auto;
+  margin: 1rem 0;
+}
+
+#stay .gift {
+  position: relative;
+  margin-top: -50px;
+  /* moves element down */
+  width: 180px;
+  height: 180px;
+  background-image: url('img/gift1.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-bottom: 2rem;
+}
+
+.section-qr {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 5px 0; /* separa la imagen de los elementos de arriba/abajo */
+}
+
+.section-qr::before {
+  content: "";
+  display: block;
+  width: 60%; /* ajusta el ancho del separador (puedes cambiarlo a 80% si lo quieres más grande) */
+  max-width: 600px;
+  height: 50px; /* altura base, puedes ajustar según el diseño */
+  background-image: url('img/separador.png');
+  background-size: contain; /* mantiene proporciones */
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* ===== Chispas animadas sobre el gift ===== */
+#stay .gift::before,
+#stay .gift::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  background: #fff;
+  border-radius: 50%;
+  opacity: 0;
+  box-shadow:
+    -30px -20px #fff,
+    20px -25px #ffeb3b,
+    15px 20px #f44336,
+    -20px 25px #4caf50,
+    0 0 #03a9f4;
+  animation: sparks 1s infinite ease-in-out;
+}
+
+#stay .gift::after {
+  animation-delay: 1s;
+}
+
+/* Animación de chispas */
+@keyframes sparks {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0;
+  }
+
+  50% {
+    transform: translate(calc(-50% + 15px), calc(-50% - 15px)) scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(calc(-50% - 15px), calc(-50% + 15px)) scale(0.5);
+    opacity: 0;
+  }
+}
+
+@media (max-width:1000px) {
+  .stay-container {
+    flex-direction: column;
+    margin: 10px 0;
+  }
+
+  .stay-item {
+    margin: 2vh 0;
+  }
+}
+
+/* <===================REGISTRY===================> */
+
+.registry-container.reveal p {
+  margin: 0;
+  font-size: 2.5rem;
+  line-height: 1.6;
+  text-align: center;
+  /* centra el párrafo */
+  color: #6b6969;
+}
+
+#registry {
+  padding: 8vh var(--horizontal-margin-spacing) 0 var(--horizontal-margin-spacing);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  /* permite que se acomoden en columnas en pantallas pequeñas */
+}
+
+.registry-container {
+  display: flex;
+  /* cambia de block a flex para centrar contenido */
+  flex-direction: column;
+  align-items: center;
+  /* centra horizontalmente */
+  justify-content: center;
+  width: 30vw;
+  text-align: center;
+  /* centra texto */
+}
+
+.registry-container .text {
+  text-align: center;
+  /* antes estaba justify, ahora centrado */
+  margin: 20px 0;
+}
+
+.registry-img {
+  display: block;
+  height: 100vh;
+  width: 40vw;
+  background-image: url("img/img10.jpg");
+  background-size: cover;
+  background-position-y: top;
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  box-shadow: inset 0 0 40px 30px rgb(232, 230, 230, 1);
+  /* efecto de borde degradado */
+}
+
+.story-quote {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 60px 10px;
+  z-index: 2;
+  /* puedes moverlo hacia arriba si quieres */
+  transform: translateY(-40px);
+  overflow: visible; /* importante para que el ::before funcione */
+}
+
+.story-quote::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 250%;
+  height: 150%;
+  background-image: url('img/liston1.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 0;
+  pointer-events: none;
+
+  /* animaciones */
+  animation: moveRibbon 10s linear infinite, shineRibbon 3s ease-in-out infinite alternate;
+}
+
+/* Movimiento horizontal lento */
+@keyframes moveRibbon {
+  0%   { transform: translate(-52%, -55%); } /* horizontal -52%, vertical fijo -55% */
+  50%  { transform: translate(-48%, -55%); } /* solo horizontal cambia */
+  100% { transform: translate(-52%, -55%); }
+}
+
+/* Brillo sutil */
+@keyframes shineRibbon {
+  0%   { filter: brightness(1); }
+  50%  { filter: brightness(1.1); }
+  100% { filter: brightness(1); }
+}
+
+.story-quote-wrapper {
+  width: 100vw;
+  position: relative;
+  overflow-x: hidden; /* evita scroll horizontal de la cinta */
+}
+
+.story-quote-container {
+  position: relative;
+  overflow: hidden; /* corta la parte de la cinta que sobresale verticalmente */
+}
+
+
+
+/* Texto centrado */
+.story-quote .text3 {
+  top: 17px;
+  position: relative;
+  z-index: 2;
+  font-size: clamp(1.6rem, 3vw, 3rem);
+  font-weight: bold;
+  font-family: 'Playfair Display', serif;
+  color: #fff;
+  text-align: center;
+  padding: 10px 20px;
+  max-width: 90%;
+  line-height: 1.4;
+  text-shadow:
+    0 0 8px rgba(255, 255, 255, 0.8),
+    0 0 16px rgba(255, 255, 255, 0.6),
+    0 0 24px rgba(255, 255, 255, 0.4),
+    0 0 12px rgba(0, 0, 0, 0.9);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;  /* ya lo tenías para horizontal */
+}
+
+.registry-img-sm {
+  display: none;
+}
+
+.registry-img-lg {
+  display: block;
+}
+
+/* Text 1 */
+.registry-img.registry-img-sm .text1 {
+  position: absolute;
+  top: 70%;
+  left: 20%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+  /* <-- Change font here */
+}
+
+/* Text 2 */
+.registry-img.registry-img-sm .text2 {
+  position: absolute;
+  bottom: 12%;
+  left: 75%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 2.5rem;
+  color: #ffffff;
+  font-family: 'Great Vibes';
+  /* <-- Change font here */
+}
+
+
+@media (max-width:1000px) {
+  #registry {
+    flex-direction: column;
+  }
+
+  .registry-img {
+    width: 100%;
+    height: 50vh;
+  }
+
+  .registry-img-sm {
+    margin-top: 10vh;
+    display: block;
+  }
+
+  .registry-img-lg {
+    display: none;
+  }
+
+  .registry-container {
+    width: 100%;
+  }
+
+  #registry button {
+    margin-inline: auto;
+  }
+}
+
+
+/* <===================PARTING MESSAGE===================> */
+.parting-message h1 {
+  margin-top: 3vh;
+  text-align: center;
+}
+
+.parting-message button {
+  margin: 5vh auto;
+}
+
+.parting-message.reveal {
+  display: flex;
+  flex-direction: column;
+  /* elementos uno debajo del otro */
+  align-items: center;
+  /* centra horizontalmente */
+  justify-content: center;
+  /* centra verticalmente */
+  text-align: center;
+  /* centra el texto */
+  padding: 5vh 10vw;
+  /* espacio arriba/abajo 5vh, costados 10vw */
+  box-sizing: border-box;
+  /* padding no rompe el tamaño */
+  gap: 3vh;
+  /* espacio vertical entre párrafo y botón */
+}
+
+.parting-message.reveal p {
+  margin: 0;
+  /* elimina márgenes por defecto */
+  font-size: 1.5rem;
+  /* tamaño de letra del texto */
+  line-height: 1.6;
+  /* para mejor lectura */
+}
+
+.parting-message.reveal button.huge-btn {
+  padding: 1rem 2rem;
+  /* espacio interno del botón */
+  font-size: 1.5rem;
+  /* tamaño de letra del botón */
+  cursor: pointer;
+}
+
+
+/* <===================FOOTER===================> */
+
+footer {
+  margin-top: 2vh;
+  width: 100%;
+  padding: 5vh 15px;
+  background-color: var(--grey-color);
+  text-align: center; /* centra todo */
+  height: fit-content;
+}
+
+footer h2 {
+  font-family: 'Great Vibes', cursive; /* fuente elegante */
+  font-size: clamp(2rem, 6vw, 4rem); /* responsive */
+  font-weight: normal;
+  margin: 0 0 10px 0;
+  letter-spacing: 1px;
+  color: #e63946; /* tono rojizo elegante */
+  text-shadow: 0 0 10px rgba(230, 57, 70, 0.3); /* sutil glow */
+}
+
+footer p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1rem, 3vw, 1.5rem); /* responsive */
+  margin: 0;
+  color: #d81313cc; /* color blanco suave */
+}

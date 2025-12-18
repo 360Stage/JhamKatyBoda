@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/7b12bcc245.js" crossorigin="anonymous"></script>
+    <title>Jham y Katy</title>
+</head>
+
+<body>
+    <!-- 🎵 Música de fondo -->
+    <audio id="bg-music" autoplay loop>
+        <source src="sound/sinbandera.mp3" type="audio/mpeg">
+        Tu navegador no soporta audio HTML5.
+    </audio>
+
+    <!-- Ícono flotante -->
+
+    <script>
+        // Fecha objetivo: Lunes, 18 de Enero de 2026 a las 14:30:00
+        const fechaBoda = new Date("2026-01-18T14:30:00").getTime();
+
+        function actualizarContador() {
+            const ahora = new Date().getTime();
+            const diferencia = fechaBoda - ahora;
+
+            if (diferencia < 0) {
+                clearInterval(intervalo);
+                document.querySelector(".invitation-countdown").innerHTML = "<h3>¡Hoy es el gran día! 💍</h3>";
+                return;
+            }
+
+            // Cálculos de tiempo
+            const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+            // Mostrar en el HTML sin padding en días
+            document.getElementById("days").textContent = String(dias); // No padStart here
+            document.getElementById("hours").textContent = String(horas).padStart(2, '0');
+            document.getElementById("minutes").textContent = String(minutos).padStart(2, '0');
+            document.getElementById("seconds").textContent = String(segundos).padStart(2, '0');
+        }
+
+        const intervalo = setInterval(actualizarContador, 1000);
+        actualizarContador();
+    </script>
+    <!-- Pantalla de bienvenida -->
+    <div id="welcome-screen">
+        <button id="enter-btn">VER INVITACION</button>
+    </div>
+
+    <div id="main-content" style="display:none;"></div>
+    <nav>
+        <input type="checkbox" id="check">
+        <div class="music-icon" id="music-icon" title="Reproducir / Pausar música">🔇</div>
+        <label for="check" class="checkbtn">
+        </label>
+        <label class="logo">J&K</label>
+        <ul class="text">
+            <li><a href="#story" onclick="myFunction()">OUR STORY</a></li>
+            <li><a href="#stay" onclick="myFunction()">TRAVEL & STAY</a></li>
+            <li><a href="#registry" onclick="myFunction()">PROMISES</a></li>
+        </ul>
+    </nav>
+    </div>
+    <!-- Section 1 -->
+    <div class="home hz-margin">
+        <h3>Nuestra Boda</h3>
+        <h1>Jham & Katy</h1>
+        <div class="container-out">
+            <div class="container-in text">
+                Domingo, 18 de Enero, 2026 <br>
+            </div>
+            <div class="home-img" id="home-img-lg"></div>
+        </div>
+    </div>
+
+    <!-- Section 1 -->
+    <div class="home-img home-img-sm">
+        <div class="home-text home-text-sm">
+            <h3>Jham y Katy</h3>
+            <span></span><span></span><span></span>
+            <span></span><span></span><span></span>
+        </div>
+    </div>
+
+    <!-- Section 2 -->
+    <div class="timeline hz-margin reveal">
+        <div class="timeline-container-polaroid stack">
+            <div class="polaroid p1">
+                <div class="photo reveal" style="background-image: url('img/width_531.jpeg');"></div>
+                <p>Jham & Katy</p>
+                <img src="img/click.png" class="click-indicator" alt="Click">
+            </div>
+
+            <div class="polaroid p2">
+                <div class="photo reveal" style="background-image: url('img/width_535.jpeg');"></div>
+                <p>Our Journey</p>
+                <img src="img/click.png" class="click-indicator" alt="Click">
+            </div>
+
+            <div class="polaroid p3">
+                <div class="photo reveal" style="background-image: url('img/width_533.jpeg');"></div>
+                <p>Forever</p>
+                <img src="img/click.png" class="click-indicator" alt="Click">
+            </div>
+
+            <div class="polaroid p4">
+                <div class="photo reveal" style="background-image: url('img/wp2.jpg');"></div>
+                <p>Forever</p>
+                <img src="img/click.png" class="click-indicator" alt="Click">
+            </div>
+
+            <div class="polaroid p5">
+                <div class="photo reveal" style="background-image: url('img/wp3.jpg');"></div>
+                <p>Love</p>
+                <img src="img/click.png" class="click-indicator" alt="Click">
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 3 -->
+    <div class="timeline hz-margin reveal">
+
+        <!-- Story logo with rose behind -->
+        <div class="story-logo-container reveal">
+            <div class="timeline-img-rose"></div>
+            <div class="story-logo reveal">
+                <span class="reveal">JK</span>
+            </div>
+        </div>
+
+        <!-- Timeline content -->
+        <div class="timeline-container-content">
+
+            <!-- Title -->
+            <div class="title-parents">
+                Con la bendición de Dios y <br>
+                nuestros padres:
+            </div>
+
+            <!-- Parent names side by side -->
+            <div class="parents-container">
+                <div class="parents parents-1">
+                    <div class="text">
+                        Antonio Torrico Gumucio<br>
+                        Zila Valdivia Luque
+                    </div>
+                </div>
+
+                <div class="parents parents-2">
+                    <div class="text">
+                        Froilan Alcon Sullcani<br>
+                        Graciela Andia Machicado
+                    </div>
+                </div>
+            </div>
+
+            <!-- Floating magical images -->
+            <div class="floating-images">
+                <div class="story-img1" id="img-heart"></div>
+                <div class="story-img2" id="img-ring"></div>
+            </div>
+
+            <!-- Quote -->
+            <div class="story-quote-wrapper">
+                <div class="story-quote-container reveal">
+                    <div class="story-quote reveal">
+                        <p class="text3 reveal">
+                            Cuando te das cuenta de que quieres pasar el resto de tu vida con alguien,
+                            deseas que el resto de tu vida empiece lo antes posible.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Section 4 (itinerario)-->
+    <div class="timeline hz-margin reveal">
+        <div class="invitation-section">
+            <div class="invitation-container">
+                <h3 class="reveal">
+                    Tenemos el agrado de invitarlos a nuestra Boda
+                </h3>
+
+                <div class="invitation-icon">
+                    <!-- Replace with your icon image -->
+                    <img src="img/calendar.png" class="reveal" alt="Calendar Icon">
+                </div>
+
+                <div class="invitation-date reveal">
+                    <span class="month">Enero</span>
+                    <div class="date-line">
+                        <span class="weekday">Domingo</span>
+                        <span class="day">18</span>
+                        <span class="year">2026</span>
+                    </div>
+                </div>
+
+                <div class="invitation-countdown reveal">
+                    <div class="countdown-numbers">
+                        <span id="days">00</span> :
+                        <span id="hours">00</span> :
+                        <span id="minutes">00</span> :
+                        <span id="seconds">00</span>
+                    </div>
+                    <div class="countdown-labels">
+                        <span>Días</span>
+                        <span>Horas</span>
+                        <span>Min</span>
+                        <span>Seg</span>
+                    </div>
+                </div>
+
+                <div class="invitation-venue reveal">
+                    <h3>LUGAR</h3>
+                    <br>
+                    <p>Centro de eventos los jardines de colcapirhua</p>
+                    <br>
+                    <br>
+                    <button class="huge-btn text reveal"
+                        onclick="window.open('https://maps.app.goo.gl/qaiWDNXMVmoKBf2ZA', '_blank')">
+                        Ver ubicación
+                    </button>
+                </div>
+            </div>
+        </div>
+        <img class="novios1" src="img/novios1.png">
+    </div>
+    </div>
+    <!-- Section 5 -->
+    <div class="v-reposition-container">
+        <div class="h-reposition-container">
+            <h2 class="itinerary-title reveal">Itinerario</h2>
+            <div class="timeline-container">
+                <div class="timeline-img reveal"></div>
+                <!-- Itinerary Section -->
+                <section class="itinerary-section reveal">
+
+                    <div class="itinerary-item">
+                        <div class="itinerary-icon">
+                            <!-- Location Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="#ff306e" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z" />
+                            </svg>
+                        </div>
+                        <div class="itinerary-text">
+                            <span class="time">2:30 pm</span>
+                            <span class="line"></span>
+                            <span class="event">Llegada</span>
+                        </div>
+                    </div>
+
+                    <div class="itinerary-item">
+                        <div class="itinerary-icon">
+                            <svg height="200px" width="200px" version="1.1" id="Layer_1"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                viewBox="0 0 512 512" xml:space="preserve" fill="#000000">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <path style="fill:#E8A09C;"
+                                        d="M197.913,161.145l54.075-65.208c2.498-3.011,2.729-7.294,0.569-10.557l-29.085-43.94 c-1.653-2.494-4.451-3.996-7.451-3.996H111.192c-2.999,0-5.8,1.502-7.45,3.996l-29.088,43.94c-2.158,3.262-1.926,7.544,0.572,10.557 l54.075,65.208H197.913z">
+                                    </path>
+                                    <polygon style="fill:#E28883;"
+                                        points="175.598,161.145 199.021,90.205 128.192,90.205 151.615,161.145 ">
+                                    </polygon>
+                                    <path style="fill:#E8A09C;"
+                                        d="M252.557,85.381l-29.085-43.94c-1.653-2.494-4.451-3.996-7.451-3.996H111.192 c-2.999,0-5.8,1.502-7.45,3.996l-29.088,43.94c-1.1,1.665-1.576,3.594-1.449,5.488h180.802 C254.135,88.976,253.659,87.045,252.557,85.381z">
+                                    </path>
+                                    <g>
+                                        <path style="fill:#E28883;"
+                                            d="M107.137,38.428c-1.352,0.688-2.531,1.708-3.393,3.011l-29.09,43.942 c-1.1,1.663-1.576,3.594-1.449,5.488h68.647L107.137,38.428z">
+                                        </path>
+                                        <path style="fill:#E28883;"
+                                            d="M185.36,90.868h68.65c0.126-1.893-0.348-3.823-1.453-5.488l-29.087-43.942 c-0.862-1.303-2.04-2.324-3.395-3.011L185.36,90.868z">
+                                        </path>
+                                    </g>
+                                    <path style="opacity:0.1;enable-background:new ;"
+                                        d="M108.724,85.381l29.088-43.94c1.65-2.494,4.45-3.996,7.449-3.996h-34.069 c-2.999,0-5.8,1.502-7.45,3.996l-29.088,43.94c-2.158,3.262-1.926,7.544,0.572,10.557l54.075,65.208l-20.006-65.208 C106.797,92.926,106.565,88.643,108.724,85.381z">
+                                    </path>
+                                    <polygon style="fill:#F5BFB6;"
+                                        points="163.555,37.445 128.192,90.868 199.021,90.868 163.656,37.445 "></polygon>
+                                    <path style="fill:#ff306e;"
+                                        d="M163.606,148.009C73.248,148.009,0,221.109,0,311.281c0,90.174,73.248,163.274,163.606,163.274 c90.359,0,163.606-73.1,163.606-163.274C327.212,221.109,253.965,148.009,163.606,148.009z M163.606,430.766 c-66.019,0-119.728-53.601-119.728-119.485c0-65.881,53.709-119.485,119.728-119.485c66.017,0,119.727,53.604,119.727,119.485 C283.332,377.165,229.623,430.766,163.606,430.766z">
+                                    </path>
+                                    <g style="opacity:0.1;">
+                                        <path
+                                            d="M22.565,311.281c0-86.387,67.231-157.094,152.324-162.879c-3.728-0.254-7.489-0.393-11.282-0.393 C73.248,148.009,0,221.109,0,311.281c0,90.174,73.248,163.274,163.606,163.274c3.793,0,7.554-0.14,11.282-0.394 C89.794,468.375,22.565,397.669,22.565,311.281z">
+                                        </path>
+                                    </g>
+                                    <path style="fill:#ff306e;"
+                                        d="M348.393,148.009c-34.29,0-66.112,10.535-92.406,28.528c12.603,8.619,23.938,18.949,33.661,30.664 c17.366-9.801,37.41-15.404,58.744-15.404c66.018,0,119.725,53.604,119.725,119.485c0,65.884-53.708,119.485-119.725,119.485 c-66.019,0-119.729-53.601-119.729-119.485c0-28.796,10.261-55.245,27.325-75.898c-9.361-11.329-20.762-20.919-33.649-28.188 c-23.454,28.257-37.554,64.527-37.554,104.086c0,90.174,73.247,163.274,163.606,163.274c90.358,0,163.607-73.1,163.607-163.274 C512,221.109,438.751,148.009,348.393,148.009z">
+                                    </path>
+                                    <g style="opacity:0.1;">
+                                        <path
+                                            d="M206.885,311.281c0-35.149,11.139-67.697,30.072-94.34c-4.617-3.587-9.493-6.858-14.616-9.747 c-23.454,28.257-37.554,64.527-37.554,104.086c0,90.174,73.247,163.274,163.606,163.274c3.715,0,7.396-0.136,11.048-0.378 C274.237,468.504,206.885,397.749,206.885,311.281z">
+                                        </path>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="itinerary-text">
+                            <span class="time">3:00 pm</span>
+                            <span class="line"></span>
+                            <span class="event">Ceremonia</span>
+                        </div>
+                    </div>
+
+                    <div class="itinerary-item">
+                        <div class="itinerary-icon">
+                            <!-- Camera Icon -->
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <path
+                                        d="M4.01207 15.7618L5.70156 10.6933C6.46758 8.39525 6.85059 7.24623 7.75684 7.03229C8.6631 6.81835 9.51953 7.67478 11.2324 9.38764L14.6114 12.7666C16.3242 14.4795 17.1807 15.3359 16.9667 16.2422C16.7528 17.1484 15.6038 17.5314 13.3057 18.2975L8.23724 19.987C5.47183 20.9088 4.08912 21.3697 3.35924 20.6398C2.62936 19.9099 3.09026 18.5272 4.01207 15.7618Z"
+                                        stroke="#ff306e" stroke-width="1.5" stroke-linecap="round"></path>
+                                    <path opacity="0.5"
+                                        d="M12.2351 18.3461C12.2351 18.3461 11.477 16.0649 11.477 14.5552C11.477 13.0454 12.2351 10.7643 12.2351 10.7643M8.06517 19.4833C8.06517 19.4833 7.42484 16.7314 7.307 14.9343C7.11229 11.965 8.06517 7.35254 8.06517 7.35254"
+                                        stroke="#ff306e" stroke-width="1.5" stroke-linecap="round"></path>
+                                    <path
+                                        d="M14.5093 10.0061L14.6533 9.28614C14.7986 8.55924 15.3224 7.96597 16.0256 7.73155C16.7289 7.49714 17.2526 6.90387 17.398 6.17697L17.542 5.45703"
+                                        stroke="#ff306e" stroke-width="1.5" stroke-linecap="round"></path>
+                                    <path
+                                        d="M17.5693 13.2533L17.7822 13.3762C18.4393 13.7556 19.2655 13.6719 19.8332 13.1685C20.3473 12.7126 21.0794 12.597 21.709 12.8723L22.0005 12.9997"
+                                        stroke="#ff306e" stroke-width="1.5" stroke-linecap="round"></path>
+                                    <path
+                                        d="M9.79489 2.77903C9.4574 3.33109 9.54198 4.04247 9.99951 4.5L10.0974 4.59788C10.4906 4.99104 10.6355 5.56862 10.4746 6.10085"
+                                        stroke="#ff306e" stroke-width="1.5" stroke-linecap="round"></path>
+                                    <g opacity="0.5">
+                                        <path
+                                            d="M6.92761 3.94079C7.13708 3.73132 7.47669 3.73132 7.68616 3.94079C7.89563 4.15026 7.89563 4.48988 7.68616 4.69935C7.47669 4.90882 7.13708 4.90882 6.92761 4.69935C6.71814 4.48988 6.71814 4.15026 6.92761 3.94079Z"
+                                            fill="#ff306e"></path>
+                                    </g>
+                                    <g opacity="0.5">
+                                        <path
+                                            d="M12.1571 7.1571C12.3666 6.94763 12.7062 6.94763 12.9157 7.1571C13.1251 7.36657 13.1251 7.70619 12.9157 7.91566C12.7062 8.12512 12.3666 8.12512 12.1571 7.91566C11.9476 7.70619 11.9476 7.36657 12.1571 7.1571Z"
+                                            fill="#ff306e"></path>
+                                    </g>
+                                    <g opacity="0.5">
+                                        <path
+                                            d="M17.1571 10.1571C17.3666 9.94763 17.7062 9.94763 17.9157 10.1571C18.1251 10.3666 18.1251 10.7062 17.9157 10.9157C17.7062 11.1251 17.3666 11.1251 17.1571 10.9157C16.9476 10.7062 16.9476 10.3666 17.1571 10.1571Z"
+                                            fill="#ff306e"></path>
+                                    </g>
+                                    <path opacity="0.5"
+                                        d="M19.058 15.3134C19.2674 15.1039 19.6071 15.1039 19.8165 15.3134C20.026 15.5228 20.026 15.8624 19.8165 16.0719C19.6071 16.2814 19.2674 16.2814 19.058 16.0719C18.8485 15.8624 18.8485 15.5228 19.058 15.3134Z"
+                                        fill="#ff306e"></path>
+                                    <path
+                                        d="M19.1725 10.328L18.6871 10.4481L18.7596 10.7409L19.0523 10.8134L19.1725 10.328ZM21.0005 8.5L20.5005 8.49866C20.5001 8.63174 20.5528 8.75946 20.6469 8.85355C20.741 8.94765 20.8688 9.00035 21.0018 9L21.0005 8.5ZM19.1725 10.328C19.6578 10.2079 19.6579 10.208 19.6579 10.2081C19.6579 10.2081 19.6579 10.2081 19.6579 10.2082C19.6579 10.2083 19.6579 10.2083 19.6579 10.2083C19.6579 10.2083 19.6579 10.2082 19.6579 10.208C19.6578 10.2076 19.6576 10.2068 19.6572 10.2055C19.6566 10.2028 19.6556 10.1985 19.6542 10.1924C19.6513 10.1803 19.6471 10.1616 19.6417 10.1369C19.631 10.0876 19.616 10.0151 19.5999 9.92546C19.5675 9.74514 19.5314 9.50098 19.5147 9.2406C19.4979 8.97721 19.5022 8.71525 19.5417 8.49306C19.5825 8.26343 19.6511 8.13217 19.7153 8.06792L19.0082 7.36081C18.7373 7.63169 18.6146 7.9947 18.5571 8.31797C18.4983 8.64867 18.4972 8.99823 18.5168 9.30448C18.5366 9.61372 18.5788 9.89729 18.6157 10.1023C18.6342 10.2054 18.6516 10.2899 18.6645 10.3495C18.671 10.3793 18.6764 10.4029 18.6803 10.4196C18.6823 10.428 18.6838 10.4346 18.685 10.4394C18.6856 10.4418 18.686 10.4437 18.6864 10.4452C18.6866 10.4459 18.6867 10.4465 18.6868 10.447C18.6869 10.4473 18.687 10.4475 18.687 10.4477C18.687 10.4478 18.6871 10.4479 18.6871 10.4479C18.6871 10.448 18.6871 10.4481 19.1725 10.328ZM19.7153 8.06792C19.9581 7.82516 20.15 7.84372 20.2388 7.88469C20.3352 7.92922 20.5016 8.08886 20.5005 8.49866L21.5005 8.50134C21.5023 7.81729 21.2043 7.22917 20.6581 6.97686C20.1042 6.72101 19.4753 6.89367 19.0082 7.36081L19.7153 8.06792ZM19.1725 10.328C19.0523 10.8134 19.0525 10.8134 19.0526 10.8134C19.0526 10.8134 19.0527 10.8135 19.0528 10.8135C19.053 10.8135 19.0532 10.8136 19.0535 10.8136C19.054 10.8138 19.0546 10.8139 19.0553 10.8141C19.0568 10.8145 19.0587 10.8149 19.0611 10.8155C19.0659 10.8166 19.0725 10.8182 19.0809 10.8202C19.0975 10.8241 19.1212 10.8295 19.151 10.8359C19.2106 10.8489 19.2951 10.8663 19.3982 10.8848C19.6032 10.9217 19.8868 10.9639 20.196 10.9837C20.5023 11.0033 20.8518 11.0022 21.1825 10.9434C21.5058 10.8859 21.8688 10.7632 22.1397 10.4923L21.4326 9.78518C21.3683 9.84944 21.2371 9.91797 21.0074 9.9588C20.7852 9.99832 20.5233 10.0026 20.2599 9.98575C19.9995 9.96908 19.7553 9.93298 19.575 9.90058C19.4854 9.88447 19.4129 9.86952 19.3636 9.85879C19.3389 9.85344 19.3202 9.84915 19.3081 9.84633C19.302 9.84492 19.2976 9.84387 19.295 9.84324C19.2937 9.84293 19.2929 9.84272 19.2925 9.84262C19.2923 9.84257 19.2922 9.84255 19.2922 9.84255C19.2922 9.84256 19.2922 9.84257 19.2923 9.84258C19.2923 9.84259 19.2924 9.84261 19.2924 9.84262C19.2925 9.84264 19.2926 9.84266 19.1725 10.328ZM22.1397 10.4923C22.6068 10.0251 22.7795 9.3963 22.5236 8.84239C22.2713 8.29616 21.6832 7.99817 20.9992 8L21.0018 9C21.4116 8.9989 21.5713 9.16534 21.6158 9.26173C21.6568 9.35044 21.6753 9.54242 21.4326 9.78518L22.1397 10.4923Z"
+                                        fill="#ff306e"></path>
+                                    <path opacity="0.5"
+                                        d="M15.1881 3.41748L15.1605 3.51459C15.1302 3.62126 15.1151 3.67459 15.1222 3.72695C15.1294 3.77931 15.1581 3.82476 15.2154 3.91567L15.2677 3.99844C15.4695 4.31836 15.5704 4.47831 15.5017 4.60915C15.4329 4.73998 15.24 4.75504 14.8542 4.78517L14.7543 4.79296C14.6447 4.80152 14.5899 4.8058 14.542 4.83099C14.494 4.85618 14.4584 4.89943 14.3872 4.98592L14.3224 5.06467C14.0718 5.36905 13.9465 5.52124 13.8035 5.50167C13.6606 5.4821 13.5947 5.30373 13.4629 4.94699L13.4288 4.85469C13.3914 4.75332 13.3726 4.70263 13.3358 4.66584C13.2991 4.62905 13.2484 4.61033 13.147 4.57287L13.0547 4.53878C12.698 4.40698 12.5196 4.34108 12.5 4.19815C12.4805 4.05522 12.6326 3.92992 12.937 3.67932L13.0158 3.61448C13.1023 3.54327 13.1455 3.50767 13.1707 3.45974C13.1959 3.41181 13.2002 3.35699 13.2087 3.24735L13.2165 3.14753C13.2466 2.76169 13.2617 2.56877 13.3925 2.50001C13.5234 2.43124 13.6833 2.53217 14.0033 2.73403L14.086 2.78626C14.1769 2.84362 14.2224 2.8723 14.2747 2.87947C14.3271 2.88664 14.3804 2.87148 14.4871 2.84117L14.5842 2.81358C14.9596 2.70692 15.1472 2.65359 15.2477 2.75402C15.3481 2.85445 15.2948 3.04213 15.1881 3.41748Z"
+                                        stroke="#ff306e"></path>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="itinerary-text">
+                            <span class="time">4:20 pm</span>
+                            <span class="line"></span>
+                            <span class="event">Recepción</span>
+                        </div>
+                    </div>
+
+                    <div class="itinerary-item">
+                        <div class="itinerary-icon">
+                            <!-- Cutlery Icon -->
+                            <svg fill="#000000" height="200px" width="200px" version="1.1" id="Layer_1"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                viewBox="0 0 512 512" xml:space="preserve">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <g>
+                                        <g>
+                                            <path
+                                                d="M200.041,49.975C194.163,21.018,168.45,0,138.901,0S83.638,21.018,77.759,49.976l-14.525,71.553 c5.256-6.265,10.953-10.662,16.718-13.689l11.195-55.147c4.591-22.618,24.675-39.034,47.754-39.034 c23.078,0,43.162,16.417,47.753,39.034l11.196,55.147c5.765,3.027,11.462,7.424,16.718,13.689L200.041,49.975z"
+                                                fill="#ff306e">
+                                            </path>
+                                        </g>
+                                    </g>
+                                    <g>
+                                        <g>
+                                            <path
+                                                d="M120.724,114.857c2.151,8.241,9.58,14.068,18.177,14.068c8.731,0,16.069-5.988,18.177-14.068 C145.57,114.857,131.241,114.857,120.724,114.857z"
+                                                fill="#ff306e">
+                                            </path>
+                                        </g>
+                                    </g>
+                                    <g>
+                                        <g>
+                                            <path
+                                                d="M220.279,300.412c-4.979-32.057-15.969-62.265-32.693-89.904l4.427-11.547c1.939,5.455,4.025,11.301,6.26,17.541 c0.003,0.01,0.009,0.019,0.012,0.029c4.179,11.609,17.932,16.409,28.407,10.086c10.666-6.436,19.237-11.608,29.594-17.857 l-32.586-30.675c-8.53-8.033-11.433-19.802-8.566-30.375c-8.141-19.235-21.401-32.851-42.467-32.851h-4.494 c-2.277,14.107-14.535,24.917-29.274,24.917c-14.66,0-26.988-10.755-29.274-24.917h-4.494c-23.719,0-37.357,17.218-45.068,39.658 C46.048,195.3,14.221,282.377,13.901,283.251c-3.696,10.11,1.503,21.302,11.613,24.999c10.108,3.696,21.303-1.502,25-11.613 c0.252-0.689,19.957-54.597,35.268-97.676l4.427,11.547c-16.724,27.639-27.714,57.847-32.693,89.904 c-1.264,8.136-21.16,136.237-22.441,144.484c-2.758,17.761,11.023,33.763,28.908,33.763h23.085v9.95 c0,12.917,10.472,23.389,23.389,23.389c12.917,0,23.389-10.472,23.389-23.389v-9.95h10.099v9.95 c0,12.917,10.472,23.389,23.389,23.389c12.917,0,23.389-10.472,23.389-23.389v-9.95h23.085c17.956,0,31.662-16.033,28.908-33.763 C241.437,436.649,221.542,308.549,220.279,300.412z M102.988,170c4.016-4.136,9.626-6.717,15.847-6.717 c6.219,0,11.823,2.579,15.834,6.717c1.735,1.789,3.175,3.866,4.232,6.159c1.057-2.292,2.497-4.369,4.232-6.159 c4.01-4.137,9.615-6.717,15.834-6.717c6.221,0,11.831,2.58,15.847,6.717c5.31,5.47,6.948,13.533,4.193,20.641l-6.233,16.08 h-67.746l-6.232-16.08C96.04,183.533,97.678,175.471,102.988,170z M213.814,463.47c-34.755,0-115.056,0-149.827,0 c-8.565,0-15.228-7.683-13.898-16.242l22.441-144.485c4.429-28.52,14.145-55.925,28.596-80.832h75.552 c14.451,24.907,24.165,52.312,28.596,80.832l22.439,144.485C229.04,455.779,222.429,463.47,213.814,463.47z"
+                                                fill="#ff306e">
+                                            </path>
+                                        </g>
+                                    </g>
+                                    <g>
+                                        <g>
+                                            <path
+                                                d="M138.9,21.187c-22.31,0-40.397,18.087-40.397,40.397c0,22.385,18.197,40.397,40.397,40.397 c22.191,0,40.397-18.003,40.397-40.397C179.297,39.274,161.211,21.187,138.9,21.187z"
+                                                fill="#ff306e">
+                                            </path>
+                                        </g>
+                                    </g>
+                                    <g>
+                                        <g>
+                                            <circle style="fill:#ff306e;" cx="402.577" cy="72.146" r="39.4"></circle>
+                                        </g>
+                                    </g>
+                                    <g>
+                                        <g>
+                                            <path
+                                                d="M303.871,74.644h-46.953c-3.419,0-6.192,2.773-6.192,6.193V99.24c0,12.288,7.471,22.832,18.117,27.336v9.789l22.298,20.99 c0-13.642,0-17.963,0-19.152c0-0.306,0-0.405,0-0.402c0-0.904,0-3.623,0-10.907c11.072-4.306,18.923-15.06,18.923-27.654V80.838 C310.065,77.417,307.292,74.644,303.871,74.644z"
+                                                fill="#ff306e">
+                                            </path>
+                                        </g>
+                                    </g>
+                                    <g>
+                                        <g>
+                                            <path
+                                                d="M498.589,168.862c-0.124-24.68-20.306-44.76-44.987-44.76h-16.785c-3.887,10.383-29.868,79.79-34.242,91.471 c-4.384-11.711-30.414-81.246-34.242-91.471h-10.956c-18.721,0-35.778,9.504-45.628,25.423 c-15.364,24.83-7.317,11.825-16.904,27.317c-40.609-38.229-37.506-35.446-39.38-36.735v-8.784l0.023-0.002 c0,0-3.268-2.001-6.433-5.904c0.019,0.002,0.038,0.006,0.057,0.008c-5.694-6.791-9.536-15.965-9.536-26.184 c0-7.534,0-10.77,0-18.402c0-9.562,7.78-17.342,17.342-17.342h17.468v-3.657c0-3.42-2.773-6.193-6.193-6.193h-46.953 c-3.42,0-6.193,2.773-6.193,6.193v18.402c0,12.288,7.471,22.832,18.117,27.336v35.114c-0.802,0.615-1.575,1.282-2.29,2.041 c-7.195,7.644-6.833,19.674,0.812,26.871l54.044,50.875c8.78,8.263,22.888,6.355,29.196-3.839 c31.505-50.913,29.484-47.782,30.568-49.053c1.04-1.22,2.729-1.661,4.233-1.107c1.504,0.554,2.501,1.988,2.501,3.59 c-0.004,179.92-0.203,23.064-0.203,318.54c0,12.598,10.214,22.811,22.812,22.811s22.812-10.212,22.812-22.811V306.276h9.848 V488.61c0,12.598,10.214,22.811,22.812,22.811s22.812-10.212,22.812-22.811c0-294.949-0.197-139.138-0.202-319.539 c0-2.108,1.706-3.819,3.814-3.824c2.108-0.006,3.824,1.696,3.834,3.805l0.701,139.656c0.054,10.467,8.553,18.914,19.008,18.914 c0.032,0,0.066,0,0.098,0c10.498-0.052,18.967-8.606,18.914-19.105L498.589,168.862z M441.991,187.377h-17.644v-8.293h17.644 V187.377z"
+                                                fill="#ff306e">
+                                            </path>
+                                        </g>
+                                    </g>
+                                    <g>
+                                        <g>
+                                            <path
+                                                d="M417.441,114.949l-14.865,8.173l-14.865-8.173c-1.837-1.01-4.092,0.321-4.092,2.42c0,2.598,0,17.174,0,18.618 c0,2.097,2.253,3.431,4.092,2.419l14.865-8.173l14.865,8.173c1.836,1.01,4.092-0.32,4.092-2.419c0-1.447,0-16.079,0-18.618 C421.533,115.273,419.281,113.939,417.441,114.949z"
+                                                fill="#ff306e">
+                                            </path>
+                                        </g>
+                                    </g>
+                                    <g>
+                                        <g>
+                                            <circle fill="#ff306e" cx="402.577" cy="150.577" r="5.183"></circle>
+                                        </g>
+                                    </g>
+                                    <g>
+                                        <g>
+                                            <circle fill="#ff306e" cx="402.577" cy="175.451" r="5.183"></circle>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="itinerary-text">
+                            <span class="time">5:00 pm</span>
+                            <span class="line"></span>
+                            <span class="event">Presentación Esposos</span>
+                        </div>
+                    </div>
+
+                    <div class="itinerary-item">
+                        <div class="itinerary-icon">
+                            <!-- Disco Icon -->
+                            <svg height="200px" width="200px" version="1.1" id="Layer_1"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                viewBox="0 0 512 512" xml:space="preserve" fill="#000000">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <g>
+                                        <path style="fill:#ff306e;"
+                                            d="M32.681,220.596v201.532c0,4.513,3.658,8.17,8.17,8.17s8.17-3.657,8.17-8.17V220.596H32.681z">
+                                        </path>
+                                        <circle style="fill:#ff306e;" cx="264.17" cy="256" r="166.128"></circle>
+                                    </g>
+                                    <g>
+                                        <circle style="fill:#ff306e;" cx="264.17" cy="256" r="122.553"></circle>
+                                        <path style="fill:#ff306e;"
+                                            d="M73.532,81.702c-4.512,0-8.17,3.657-8.17,8.17v68.085h-16.34V89.872c0-4.513-3.658-8.17-8.17-8.17 s-8.17,3.657-8.17,8.17v68.085H16.34V89.872c0-4.513-3.658-8.17-8.17-8.17S0,85.359,0,89.872v98.043 c0,22.526,18.325,40.851,40.851,40.851s40.851-18.325,40.851-40.851V89.872C81.702,85.359,78.044,81.702,73.532,81.702z">
+                                        </path>
+                                    </g>
+                                    <path style="fill:#ff306e;"
+                                        d="M495.66,231.489v190.638c0,4.513,3.657,8.17,8.17,8.17s8.17-3.657,8.17-8.17V280.511L495.66,231.489z ">
+                                    </path>
+                                    <path style="fill:#ff306e;"
+                                        d="M512,280.511h-49.021V122.553c0-22.526,18.325-40.851,40.851-40.851H512V280.511z">
+                                    </path>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="itinerary-text">
+                            <span class="time">6:30 pm</span>
+                            <span class="line"></span>
+                            <span class="event">Cena</span>
+                        </div>
+                    </div>
+
+                    <div class="itinerary-item">
+                        <div class="itinerary-icon">
+                            <svg height="200px" width="200px" version="1.1" id="Layer_1"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                viewBox="0 0 511.982 511.982" xml:space="preserve" fill="#000000">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <g>
+                                        <path style="fill:#ff306e;"
+                                            d="M383.987,123.975c0-11.733-9.594-21.343-21.343-21.343H149.331 c-11.734,0-21.335,9.609-21.335,21.343v128.777c0,11.734,9.602,21.335,21.335,21.335h213.313c11.749,0,21.343-9.601,21.343-21.335 V123.975z">
+                                        </path>
+                                        <path style="fill:#ff306e;"
+                                            d="M447.984,251.971c0-11.734-9.593-21.343-21.342-21.343H85.333c-11.734,0-21.335,9.608-21.335,21.343 v106.645c0,11.75,9.601,21.344,21.335,21.344h341.31c11.749,0,21.342-9.594,21.342-21.344V251.971H447.984z">
+                                        </path>
+                                    </g>
+                                    <path style="fill:#ff306e;"
+                                        d="M268.701,4.027c-4.491,0.016-8.812,1.031-12.71,2.984c-3.898-1.953-8.218-2.969-12.71-2.969 c-15.695,0-28.468,12.765-28.468,28.452c0,25.733,32.14,45.217,35.804,47.357l5.374,3.126l5.375-3.125 c3.664-2.141,35.812-21.624,35.812-47.357C297.178,16.807,284.396,4.043,268.701,4.027z">
+                                    </path>
+                                    <path style="opacity:0.2;fill:#ff306e;enable-background:new ;"
+                                        d="M268.701,4.027c-1.812,0.016-3.601,0.188-5.343,0.516 c13.163,2.499,23.132,14.077,23.132,27.952c0,25.733-32.124,45.217-35.788,47.357l-0.047,0.016l5.336,3.109l5.375-3.125 c3.664-2.141,35.812-21.624,35.812-47.357C297.178,16.807,284.396,4.043,268.701,4.027z">
+                                    </path>
+                                    <path style="fill:#ff306e;"
+                                        d="M511.982,379.96c0-11.719-9.594-21.344-21.343-21.344H21.335C9.601,358.616,0,368.241,0,379.96 v106.652c0,11.75,9.601,21.343,21.335,21.343h469.304c11.749,0,21.343-9.593,21.343-21.343L511.982,379.96L511.982,379.96z">
+                                    </path>
+                                    <path style="fill:#ff306e;"
+                                        d="M490.639,379.96H21.335C9.601,379.96,0,389.553,0,401.303v26.593 c11.289,10,26.14,16.062,42.413,16.062c22.179,0,41.717-11.281,53.201-28.438c11.484,17.156,31.03,28.438,53.209,28.438 c22.343,0,42.006-11.469,53.459-28.812c11.445,17.344,31.108,28.812,53.451,28.812c22.351,0,42.007-11.469,53.46-28.812 c11.452,17.344,31.107,28.812,53.451,28.812c22.357,0,42.029-11.469,53.467-28.812c11.438,17.344,31.123,28.812,53.467,28.812 c16.266,0,31.124-6.062,42.404-16.062v-26.593C511.982,389.553,502.388,379.96,490.639,379.96z">
+                                    </path>
+                                    <path style="fill:#ffffff;"
+                                        d="M490.639,358.616H21.335C9.601,358.616,0,368.241,0,379.96v26.592 c11.289,10,26.14,16.062,42.413,16.062c22.179,0,41.717-11.281,53.201-28.405c11.484,17.124,31.03,28.405,53.209,28.405 c22.343,0,42.006-11.438,53.459-28.812c11.445,17.374,31.108,28.812,53.451,28.812c22.351,0,42.007-11.438,53.46-28.812 c11.452,17.374,31.107,28.812,53.451,28.812c22.357,0,42.029-11.438,53.467-28.812c11.438,17.374,31.123,28.812,53.467,28.812 c16.266,0,31.124-6.062,42.404-16.062V379.96C511.982,368.241,502.388,358.616,490.639,358.616z">
+                                    </path>
+                                    <path style="fill:#ff306e;"
+                                        d="M148.823,187.973c22.343,0,42.006-11.468,53.459-28.812c11.445,17.344,31.108,28.812,53.451,28.812 c22.351,0,42.007-11.468,53.46-28.812c11.452,17.344,31.107,28.812,53.451,28.812c7.5,0,14.671-1.297,21.343-3.656v-60.342H127.995 v60.514C134.527,186.739,141.526,187.973,148.823,187.973z">
+                                    </path>
+                                    <path style="fill:#ffffff;"
+                                        d="M127.995,123.975v39.187c6.531,2.25,13.531,3.469,20.828,3.469c22.343,0,42.006-11.453,53.459-28.812 c11.445,17.358,31.108,28.812,53.451,28.812c22.351,0,42.007-11.453,53.46-28.812c11.452,17.358,31.107,28.812,53.451,28.812 c7.5,0,14.671-1.281,21.343-3.641v-39.015c0-11.733-9.594-21.343-21.343-21.343H149.331 C137.597,102.633,127.995,112.242,127.995,123.975z">
+                                    </path>
+                                    <path style="fill:#ffffff;"
+                                        d="M95.614,287.525c11.484,17.155,31.03,28.437,53.209,28.437c22.343,0,42.006-11.469,53.459-28.812 c11.445,17.343,31.108,28.812,53.451,28.812c22.351,0,42.007-11.469,53.46-28.812c11.452,17.343,31.107,28.812,53.451,28.812 c22.357,0,42.029-11.469,53.467-28.812c7.562,11.468,18.718,20.374,31.873,25.062v-60.24H63.998v60.271 C76.997,307.555,88.052,298.837,95.614,287.525z">
+                                    </path>
+                                    <path style="fill:#ff306e;"
+                                        d="M63.998,251.971v38.928c13-4.655,24.054-13.405,31.616-24.693 c11.484,17.132,31.03,28.412,53.209,28.412c22.343,0,42.006-11.437,53.459-28.803c11.445,17.366,31.108,28.803,53.451,28.803 c22.351,0,42.007-11.437,53.46-28.803c11.452,17.366,31.107,28.803,53.451,28.803c22.357,0,42.029-11.437,53.467-28.803 c7.562,11.491,18.718,20.366,31.873,25.084v-38.928c0-11.734-9.593-21.343-21.342-21.343H85.333 C73.599,230.629,63.998,240.237,63.998,251.971z">
+                                    </path>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="itinerary-text">
+                            <span class="time">8:30 pm</span>
+                            <span class="line"></span>
+                            <span class="event">Corte del pastel</span>
+                        </div>
+                    </div>
+                    <div class="itinerary-item">
+                        <div class="itinerary-icon">
+                            <!-- Camera Icon -->
+                            <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="#ff306e" viewBox="0 0 24 24">
+                            <path
+                                d="M20 5h-3.17L15 3H9L7.17 5H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm-8 13a5 5 0 1 1 0-10 5 5 0 0 1 0 10z" />
+                            <circle cx="12" cy="13" r="2.5" />
+                        </svg> -->
+
+                            <svg fill="#000000" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 260 260"
+                                enable-background="new 0 0 260 260" xml:space="preserve">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <path
+                                        d="M32.478,129.993c0-6.691,5.422-12.114,12.111-12.114c6.689,0,12.111,5.424,12.111,12.114 c0,6.691-5.422,12.114-12.111,12.114C37.901,142.107,32.478,136.683,32.478,129.993z M89.844,126.509 c-2.74-1.858-6.473-1.143-8.333,1.6L69.381,146H29.975c-1.088,0-2.156,0.296-3.089,0.856L4.912,160.051 c-2.332,1.399-3.431,4.193-2.676,6.807l6.458,22.38c0.758,2.629,3.157,4.339,5.762,4.339c0.551,0,1.111-0.077,1.667-0.237 c3.184-0.919,5.02-4.244,4.101-7.428l-5.178-17.947L28,160.229V222l-16.566,24.971c-2.132,3.225-1.247,7.567,1.978,9.699 c1.188,0.786,2.529,1.162,3.854,1.162c2.271,0,4.499-1.104,5.845-3.141l17.703-26.773c0.757-1.145,1.161-2.487,1.161-3.86v-20.074 c0.503-0.013,0.999-0.034,1.484-0.068l8.516,20.79V251c0,3.866,3.134,7,7,7s7-3.134,7-7v-27.673c0-0.91-0.177-1.812-0.522-2.653 l-11.478-28.021V158h18.587c1.99,0,3.85-0.986,4.966-2.633l13.915-20.524C93.303,132.1,92.587,128.369,89.844,126.509z M248.08,33.421c-2.593-1.264-5.159-2.546-7.697-3.845c-2.563-1.34-5.118-2.73-7.634-4.119c-4.699-2.599-9.289-5.262-13.788-7.974 c-0.329,0.184-0.661,0.362-0.991,0.545c-0.026,5.356-0.248,10.582-0.545,15.919c-0.325,5.701-0.766,11.463-1.326,17.281 c-9.503-6.017-18.646-12.449-27.3-18.981c-0.337,0.143-0.671,0.291-1.008,0.432c-0.649,5.207-1.394,10.456-2.256,15.751 c-0.461,2.829-0.952,5.671-1.475,8.524c-0.524,2.851-1.068,5.741-1.688,8.52c-4.562-3.653-9.001-7.353-13.314-11.094 c-4.035-3.509-7.934-6.989-11.793-10.708c-0.359,0.109-0.718,0.216-1.078,0.324c-1.194,5.117-2.487,10.264-3.902,15.446 c-0.758,2.776-1.548,5.56-2.37,8.353c-0.837,2.735-1.711,5.456-2.615,8.196c-8.013-7.973-15.495-15.839-22.61-24.338 c-0.374,0.07-0.749,0.133-1.123,0.203c-1.731,4.976-3.563,9.972-5.519,14.988l-1.597,4.038l-1.662,3.94 c-1.124,2.627-2.281,5.257-3.471,7.892c-3.676-4.499-7.221-9.016-10.636-13.548c-3.188-4.24-6.28-8.691-9.253-13.063 c-0.379,0.03-0.757,0.067-1.136,0.096c-2.25,4.779-4.602,9.569-7.077,14.364c-2.658,5.053-5.451,10.011-8.37,15.026 c-3.178-4.848-6.227-9.701-9.147-14.553c-2.724-4.665-5.324-9.33-7.824-13.991c-0.382-0.009-0.762-0.026-1.144-0.036 c-2.741,4.525-5.585,9.086-8.549,13.554c-3.171,4.699-6.471,9.39-9.901,14.07c-2.651-5.173-5.185-10.21-7.567-15.467 c-2.222-4.919-4.32-9.824-6.315-14.715c-0.371-0.049-0.741-0.106-1.112-0.155c-1.493,1.97-2.999,3.94-4.542,5.904l-2.683,3.38 l-2.715,3.267C9.694,71.196,5.912,75.526,2,79.83V50.714v-0.962v-4.138c20.565,4.315,41.867,6.602,63.697,6.602 c62.298,0,120.348-18.48,169.002-50.216v0.001L246,1.999C246.982,12.411,247.987,22.759,248.08,33.421z M141.579,142.107 c6.689,0,12.111-5.424,12.111-12.114c0-6.691-5.422-12.114-12.111-12.114s-12.111,5.424-12.111,12.114 C129.468,136.683,134.89,142.107,141.579,142.107z M190.012,175.023l-31.442-27.537c-1.094-0.958-2.499-1.486-3.953-1.486h-22.944 c-1.325,0-2.612,0.438-3.662,1.247l-17.924,13.809l-13.515-11.678c-2.507-2.165-6.296-1.891-8.463,0.617 c-2.167,2.507-1.89,6.296,0.617,8.463l17.22,14.88c2.157,1.863,5.327,1.952,7.584,0.213l16.471-12.69L130,197.429l-13.67,21.417 c-0.537,0.842-0.888,1.788-1.029,2.776l-4.032,28.219c-0.547,3.827,2.112,7.373,5.939,7.92c0.336,0.048,0.669,0.071,0.999,0.071 c3.427,0,6.422-2.52,6.921-6.011l3.817-26.72L142,204.65V251c0,3.866,3.134,7,7,7s7-3.134,7-7v-55v-4v-30.812l26.105,22.863 c1.139,0.997,2.548,1.486,3.951,1.486c1.669,0,3.329-0.692,4.516-2.047C192.756,180.997,192.505,177.207,190.012,175.023z M255.511,234.689l-21.518-18.366l-5.02-24.329V156.39l27.99-41.25c1.86-2.742,1.146-6.474-1.596-8.334 c-2.743-1.861-6.474-1.146-8.334,1.596L221.522,146h-32.7l-16.73-14.769c-2.483-2.193-6.276-1.958-8.469,0.527 c-2.193,2.484-1.957,6.276,0.527,8.469l18.432,16.271c1.097,0.968,2.509,1.502,3.971,1.502H203v93c0,3.866,3.108,7,6.974,7 s7-3.134,7-7v-47.885l3.794,18.388c0.314,1.524,1.127,2.9,2.311,3.91l23.343,19.925c1.318,1.125,2.935,1.676,4.542,1.676 c1.978,0,3.942-0.833,5.327-2.455C258.8,241.618,258.452,237.199,255.511,234.689z M210.669,141.855 c6.689,0,12.111-5.424,12.111-12.114c0-6.691-5.422-12.114-12.111-12.114c-6.689,0-12.111,5.424-12.111,12.114 C198.558,136.431,203.98,141.855,210.669,141.855z"
+                                        fill="#ff306e">
+                                    </path>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="itinerary-text">
+                            <span class="time">9:00 pm</span>
+                            <span class="line"></span>
+                            <span class="event">Actividades</span>
+                        </div>
+                    </div>
+
+                    <div class="itinerary-item">
+                        <div class="itinerary-icon">
+                            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 481.51 481.51"
+                                xml:space="preserve" fill="#000000">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <g>
+                                        <g id="XMLID_1_">
+                                            <g>
+                                                <path style="fill:#ff306e;"
+                                                    d="M465.74,303.075c3.56,3.57,5.77,8.49,5.77,13.93c0,10.89-8.82,19.7-19.7,19.7h-45.9 c0.12-1.43,0.18-2.88,0.18-4.35c0-13.46-5.07-25.75-13.4-35.05h56.55h2.57C457.25,297.305,462.17,299.515,465.74,303.075z">
+                                                </path>
+                                                <path style="fill:#ff306e;"
+                                                    d="M449.24,271.495v25.81h-56.55c-9.62-10.75-23.6-17.51-39.16-17.51 c-29.03,0-52.56,23.53-52.56,52.56c0,1.47,0.06,2.92,0.18,4.35h-139.1c0.12-1.43,0.18-2.88,0.18-4.35 c0-29.03-23.53-52.56-52.56-52.56c-15.56,0-29.54,6.76-39.15,17.51h-0.01H37c-0.74,0-1.47,0.04-2.19,0.12v-59.73 c0-20.27,16.43-36.7,36.7-36.7h26.05h23.8h99.99h55.83h102.2c21.03,0,39.88,9.29,52.7,23.99c-11.15,2.51-19.48,12.48-19.48,24.38 c0,13.81,11.19,25.01,25,25.01C441.81,274.375,445.77,273.335,449.24,271.495z M270.28,257.785c0-5.97-2.27-11.94-6.82-16.49 c-4.55-4.55-10.52-6.83-16.48-6.83c-5.97,0-11.94,2.28-16.49,6.83c-9.1-9.1-23.86-9.1-32.96,0c-4.55,4.55-6.83,10.52-6.83,16.49 c0,5.96,2.28,11.92,6.83,16.48l32.96,32.96l32.97-32.96C268.01,269.705,270.28,263.745,270.28,257.785z">
+                                                </path>
+                                                <path style="fill:#ff306e;"
+                                                    d="M449.24,270.865v0.63c-3.47,1.84-7.43,2.88-11.64,2.88c-13.81,0-25-11.2-25-25.01 c0-11.9,8.33-21.87,19.48-24.38C442.76,237.265,449.24,253.305,449.24,270.865z">
+                                                </path>
+                                                <path style="fill:#ff306e;"
+                                                    d="M353.53,310.725c11.94,0,21.63,9.68,21.63,21.63c0,11.95-9.69,21.63-21.63,21.63 c-11.95,0-21.63-9.68-21.63-21.63C331.9,320.405,341.58,310.725,353.53,310.725z">
+                                                </path>
+                                                <path style="fill:#ff306e;"
+                                                    d="M234.31,96.595l42.87,104.4h-55.83c-7.12-26.58-5.83-54.98,4.13-81.17L234.31,96.595z">
+                                                </path>
+                                                <path style="fill:#ffffff;"
+                                                    d="M263.46,241.295c4.55,4.55,6.82,10.52,6.82,16.49c0,5.96-2.27,11.92-6.82,16.48l-32.97,32.96 l-32.96-32.96c-4.55-4.56-6.83-10.52-6.83-16.48c0-5.97,2.28-11.94,6.83-16.49c9.1-9.1,23.86-9.1,32.96,0 c4.55-4.55,10.52-6.83,16.49-6.83C252.94,234.465,258.91,236.745,263.46,241.295z">
+                                                </path>
+                                                <path style="fill:#ff306e;"
+                                                    d="M109.67,310.725c11.95,0,21.63,9.68,21.63,21.63c0,11.95-9.68,21.63-21.63,21.63 c-11.94,0-21.63-9.68-21.63-21.63C88.04,320.405,97.73,310.725,109.67,310.725z">
+                                                </path>
+                                                <polygon style="fill:#ff306e;"
+                                                    points="121.36,200.995 97.56,200.995 71.51,200.995 10,200.995 10,152.845 ">
+                                                </polygon>
+                                                <path style="fill:#ff306e;"
+                                                    d="M37,297.305h33.51c-8.33,9.3-13.39,21.59-13.39,35.05c0,1.47,0.06,2.92,0.18,4.35H37 c-5.45,0-10.37-2.21-13.93-5.77s-5.77-8.48-5.77-13.93c0-10.14,7.66-18.49,17.51-19.58C35.53,297.345,36.26,297.305,37,297.305z">
+                                                </path>
+                                            </g>
+                                            <g>
+                                                <path
+                                                    style="fill:none;stroke:#ff306e;stroke-width:20;stroke-linejoin:round;stroke-miterlimit:10;"
+                                                    d="M221.35,200.995 c-7.12-26.58-5.83-54.98,4.13-81.17l8.83-23.23l42.87,104.4">
+                                                </path>
+                                                <path
+                                                    style="fill:none;stroke:#ff306e;stroke-width:20;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;"
+                                                    d=" M70.51,297.305c-8.33,9.3-13.39,21.59-13.39,35.05c0,1.47,0.06,2.92,0.18,4.35c2.21,27,24.82,48.21,52.37,48.21 c27.56,0,50.17-21.21,52.38-48.21c0.12-1.43,0.18-2.88,0.18-4.35c0-29.03-23.53-52.56-52.56-52.56 c-15.56,0-29.54,6.76-39.15,17.51">
+                                                </path>
+                                                <path
+                                                    style="fill:none;stroke:#ff306e;stroke-width:20;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;"
+                                                    d=" M131.3,332.355c0-11.95-9.68-21.63-21.63-21.63c-11.94,0-21.63,9.68-21.63,21.63c0,11.95,9.69,21.63,21.63,21.63 C121.62,353.985,131.3,344.305,131.3,332.355z">
+                                                </path>
+                                                <path
+                                                    style="fill:none;stroke:#ff306e;stroke-width:20;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;"
+                                                    d=" M375.16,332.355c0-11.95-9.69-21.63-21.63-21.63c-11.95,0-21.63,9.68-21.63,21.63c0,11.95,9.68,21.63,21.63,21.63 C365.47,353.985,375.16,344.305,375.16,332.355z">
+                                                </path>
+                                                <path
+                                                    style="fill:none;stroke:#ff306e;stroke-width:20;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;"
+                                                    d=" M405.91,336.705c0.12-1.43,0.18-2.88,0.18-4.35c0-13.46-5.07-25.75-13.4-35.05c-9.62-10.75-23.6-17.51-39.16-17.51 c-29.03,0-52.56,23.53-52.56,52.56c0,1.47,0.06,2.92,0.18,4.35c2.21,27,24.82,48.21,52.38,48.21 C381.08,384.915,403.7,363.705,405.91,336.705z">
+                                                </path>
+                                                <path
+                                                    style="fill:none;stroke:#ff306e;stroke-width:20;stroke-linejoin:round;stroke-miterlimit:10;"
+                                                    d="M97.56,200.995h23.8 h99.99h55.83h102.2c21.03,0,39.88,9.29,52.7,23.99c10.68,12.28,17.16,28.32,17.16,45.88v0.63v25.81">
+                                                </path>
+                                                <path
+                                                    style="fill:none;stroke:#ff306e;stroke-width:20;stroke-linejoin:round;stroke-miterlimit:10;"
+                                                    d="M34.81,297.425v-59.73 c0-20.27,16.43-36.7,36.7-36.7"></path>
+                                                <path
+                                                    style="fill:none;stroke:#ff306e;stroke-width:20;stroke-linejoin:round;stroke-miterlimit:10;"
+                                                    d="M57.31,336.705H57.3H37 c-5.45,0-10.37-2.21-13.93-5.77s-5.77-8.48-5.77-13.93c0-10.14,7.66-18.49,17.51-19.58c0.72-0.08,1.45-0.12,2.19-0.12h33.51h0.01 ">
+                                                </path>
+                                                <polyline
+                                                    style="fill:none;stroke:#ff306e;stroke-width:20;stroke-linejoin:round;stroke-miterlimit:10;"
+                                                    points=" 301.16,336.705 301.15,336.705 162.05,336.705 "></polyline>
+                                                <path
+                                                    style="fill:none;stroke:#ff306e;stroke-width:20;stroke-linejoin:round;stroke-miterlimit:10;"
+                                                    d="M392.69,297.305h56.55 h2.57c5.44,0,10.36,2.21,13.93,5.77c3.56,3.57,5.77,8.49,5.77,13.93c0,10.89-8.82,19.7-19.7,19.7h-45.9h-0.01">
+                                                </path>
+                                                <polyline
+                                                    style="fill:none;stroke:#ff306e;stroke-width:20;stroke-linejoin:round;stroke-miterlimit:10;"
+                                                    points=" 121.36,200.995 10,152.845 10,200.995 71.51,200.995 97.56,200.995 ">
+                                                </polyline>
+                                                <path
+                                                    style="fill:none;stroke:#ff306e;stroke-width:20;stroke-linejoin:round;stroke-miterlimit:10;"
+                                                    d="M432.08,224.985 c-11.15,2.51-19.48,12.48-19.48,24.38c0,13.81,11.19,25.01,25,25.01c4.21,0,8.17-1.04,11.64-2.88">
+                                                </path>
+                                                <path
+                                                    style="fill:none;stroke:#ff306e;stroke-width:20;stroke-linejoin:round;stroke-miterlimit:10;"
+                                                    d="M230.49,241.295 c-9.1-9.1-23.86-9.1-32.96,0c-4.55,4.55-6.83,10.52-6.83,16.49c0,5.96,2.28,11.92,6.83,16.48l32.96,32.96l32.97-32.96 c4.55-4.56,6.82-10.52,6.82-16.48c0-5.97-2.27-11.94-6.82-16.49c-4.55-4.55-10.52-6.83-16.48-6.83 C241.01,234.465,235.04,236.745,230.49,241.295z">
+                                                </path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="itinerary-text">
+                            <span class="time">00:30 am</span>
+                            <span class="line"></span>
+                            <span class="event">Fin del evento</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- No niños -->
+                <div class="no-children-title reveal">
+                    <h2>No niños</h2>
+                    <h3>
+                        Amamos a sus hijos,<br>
+                        pero ustedes merecen disfrutar,<br>
+                        así que hoy,<br>
+                        los niños se quedan en casa
+                    </h3>
+                </div>
+            </div>
+
+            <div class="gallery hz-margin reveal">
+                <div class="gallery-img reveal"></div>
+                <div class="gallery-img reveal"></div>
+                <div class="gallery-img reveal"></div>
+            </div>
+
+            <div class="quote reveal">
+                <section class="gift-section">
+                    <div class="left">
+                        <!-- Vestimenta Formal -->
+                        <div class="formal">
+                            <div class="icon">
+                                <img src="img/dresscode2.png" alt="Icono vestimenta formal" class="icon-image">
+                            </div>
+                            <h2 class="reveal">VESTIMENTA FORMAL</h2>
+                            <h3 class="reveal">
+                                Queremos verlos con la pinta más elegante! <br>
+                                Los invitamos a inspirarse en los siguientes colores:
+                            </h3>
+                            <div class="color-palette reveal">
+                                <img src="img/palette.jpg" alt="Paleta de colores" class="palette-image">
+                            </div>
+                        </div>
+                </section>
+            </div>
+            <div class="hands" id="parallax1"></div>
+            <div id="stay">
+                <div class="gift reveal"></div>
+                <h2 class="reveal reveal">LLUVIA DE SOBRES</h2>
+                <div class="stay-container reveal">
+                    <!-- 1 -->
+                    <div class="stay-item">
+                        <div class="text reveal">Preferimos que los regalos que deseen hacernos sean en efectivo.
+                            Su donativo puede ayudar a que una pareja de recién casados no tenga que dormir en el piso
+                            después de la boda.
+                        </div>
+                        <div class="photo reveal"></div>
+                    </div>
+                    <!-- 2 -->
+                    <div class="stay-item">
+                        <div class="savings">
+                            <h2 class="reveal">Nuestras cuentas de ahorro</h2>
+                            <div class="text reveal">BNB</div>
+                            <img src="img/qr-code1.jpg" alt="QR" class="qr reveal">
+                            <div class="text reveal">
+                                <h3 class="reveal">N° de cuenta:</h3> 3503667192<br>Katherynne Torrico Valdivia
+                            </div>
+                            <div class="text reveal">
+                                <h3 class="reveal">N° de cuenta:</h3> 3502682287<br>Jhamin Alcon Andia
+                            </div>
+                            <div class="section-qr reveal">
+                            </div>
+                            <br>    
+                            <br>    
+                            <!-- <h3 class="reveal">Si te encuentras fuera de Bolivia, también puedes enviarnos tu regalo a través de Airtm 💌</h3> -->
+                            <div class="text reveal">Airtm</div>
+                            <img src="img/airtm.jpg" alt="QR" class="qr reveal">
+                            <div class="text reveal">
+                                <h3 class="reveal">Usuario:</h3>katheryn59sm6vk5
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 3 -->
+                    <!-- <div class="stay-item">
+                        <h3>03. <br>
+                            Where to Stay
+                        </h3>
+                        <div class="text">Hotels and B&Bs <br> to check out</div>
+                        <div class="text links">LODGING OPTIONS</div>
+                    </div> -->
+                </div>
+            </div>
+
+
+            <div id="registry">
+                <div class="registry-container reveal">
+                    <p class="reveal">
+                        Queremos que sea una celebración íntima y especial,<br>
+                        agradecemos respetar el número de pases asignados en esta invitación.
+                    </p>
+                    <br><br>
+                    <h2 class="reveal">
+                        ¿vas a ser parte de nuestra historia de amor?
+                    </h2>
+                    <br>
+                    <a href="https://forms.gle/pgQnEfzwkTHKcBCt5" target="_blank">
+                        <button class="huge-btn text reveal">
+                            CONFIRMAR ASISTENCIA
+                        </button>
+                    </a>
+                    <br>
+                    <div class="hand-indicator">
+                        <img src="img/hand.png" alt="Presiona el botón" />
+                    </div>
+                    <br>
+                    <h2 class="reveal">
+                        por favor confírmanos tu asistencia hasta el 15 de Diciembre
+                    </h2>
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="story-logo-container reveal">
+                    <div class="timeline-img-rose"></div>
+                    <div class="story-logo reveal">
+                        <span class="reveal">JK</span>
+                    </div>
+                </div>
+            </div>
+            <div class="registry-img registry-img-sm reveal">
+                <p class="text1 reveal">¡Esperamos verte <br> y celebrar juntos!</p>
+                <p class="text2 reveal">Con cariño...<br>Jham y Katy</p>
+            </div>
+
+            <footer class="footer">
+                <h2 class="couple-names">Jham & Katy</h2>
+                <p class="footer-text">¡Gracias por acompañarnos en este día tan especial!</p>
+            </footer>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    <script>
+        const novios = document.querySelector('.novios1');
+
+        window.addEventListener('scroll', () => {
+            let scrollY = window.scrollY;
+            let scaleFactor = 1 + scrollY / 2000;
+            if (scaleFactor > 1.2) scaleFactor = 1.2;
+            novios.style.transform = `scale(${scaleFactor}) translateY(${scrollY / 20}px)`;
+        });
+    </script>
+
+    <script>
+        const enterBtn = document.getElementById("enter-btn");
+        const welcomeScreen = document.getElementById("welcome-screen");
+        const audio = document.getElementById("bg-music");
+        const musicIcon = document.getElementById("music-icon");
+        let isPlaying = false;
+
+        enterBtn.addEventListener("click", () => {
+            // Oculta pantalla de bienvenida y muestra contenido
+            welcomeScreen.style.display = "none";
+
+            // Inicia música automáticamente
+            audio.play().then(() => {
+                isPlaying = true;
+                musicIcon.textContent = "🎵";
+            }).catch(() => {
+                console.warn("Reproducción bloqueada.");
+                musicIcon.textContent = "🔇";
+            });
+        });
+
+        // Control manual del icono
+        musicIcon.addEventListener("click", () => {
+            if (isPlaying) {
+                audio.pause();
+                musicIcon.textContent = "🔇";
+            } else {
+                audio.play().then(() => { musicIcon.textContent = "🎵"; });
+            }
+            isPlaying = !isPlaying;
+        });
+
+        // Repetir música automáticamente
+        audio.addEventListener("ended", () => {
+            audio.currentTime = 0;
+            audio.play();
+        });
+    </script>
+
+</body>
+</html>
